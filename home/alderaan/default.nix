@@ -67,4 +67,9 @@
   };
 
   home.pointerCursor = with config.gtk.cursorTheme; { inherit name package size; };
+
+  xresources.properties = {
+    "Xft.dpi" = 96;
+    "Xcursor.size" = 24;
+  };
 }

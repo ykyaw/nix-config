@@ -36,7 +36,7 @@
           Mod = config.xsession.windowManager.i3.config.modifier;
         in
         lib.mkOptionDefault {
-          "${Mod}+b" = "exec firefox-devedition";
+          "${Mod}+b" = "exec brave";
           "${Mod}+c" = "exec code";
           "${Mod}+e" = "exec dolphin";
           "${Mod}+space" = "exec rofi -show drun";
