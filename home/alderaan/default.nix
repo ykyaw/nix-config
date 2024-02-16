@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./i3.nix
+
     ../shared/brave.nix
     ../shared/fish.nix
     ../shared/git.nix
@@ -23,7 +25,6 @@
       nixpkgs-fmt
       nodejs
       pavucontrol
-      playerctl
       qbittorrent
       spotify
       sqlite

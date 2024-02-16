@@ -35,13 +35,7 @@
     xserver = {
       enable = true;
       displayManager.defaultSession = "none+i3";
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          dmenu
-          i3status
-        ];
-      };
+      windowManager.i3.enable = true;
     };
     zram-generator = {
       enable = true;
