@@ -36,6 +36,17 @@
       enable = true;
       displayManager.defaultSession = "none+i3";
       windowManager.i3.enable = true;
+      excludePackages = [ pkgs.xterm ];
+      monitorSection = ''
+        Option "DPI" "96 x 96"
+      '';
+      screenSection = ''
+        Option "metamodes" "3840x2160_120 +0+0"
+      '';
+      libinput = {
+        enable = true;
+        mouse.accelProfile = "flat";
+      };
     };
     zram-generator = {
       enable = true;
