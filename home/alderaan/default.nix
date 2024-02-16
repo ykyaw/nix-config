@@ -8,6 +8,7 @@
     ../shared/firefox.nix
     ../shared/fish.nix
     ../shared/git.nix
+    ../shared/starship.nix
     ../shared/vscode.nix
     ../shared/zoxide.nix
   ];
