@@ -9,6 +9,7 @@
     ../shared/fish.nix
     ../shared/git.nix
     ../shared/vscode.nix
+    ../shared/zoxide.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -25,6 +25,7 @@
   time.timeZone = "Asia/Singapore";
 
   services = {
+    openssh.enable = true;
     pipewire = {
       enable = true;
       wireplumber.enable = true;
@@ -32,6 +33,7 @@
       jack.enable = true;
       pulse.enable = true;
     };
+    udisks2.enable = true;
     xserver = {
       enable = true;
       displayManager.defaultSession = "none+i3";
@@ -93,8 +95,6 @@
     dconf.enable = true;
     steam.enable = true;
   };
-
-  services.openssh.enable = true;
 
   fonts = {
     fontconfig = {
