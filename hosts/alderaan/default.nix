@@ -64,6 +64,7 @@
       driSupport = true;
       driSupport32Bit = true;
     };
+    xone.enable = true;
   };
 
   users = {
@@ -88,7 +89,10 @@
     ];
   };
 
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    steam.enable = true;
+  };
 
   services.openssh.enable = true;
 
