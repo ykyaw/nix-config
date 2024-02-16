@@ -23,15 +23,24 @@
 
   time.timeZone = "Asia/Singapore";
 
-  services.xserver = {
-    enable = true;
-    displayManager.defaultSession = "none+i3";
-    windowManager.i3 = {
+  services = {
+    pipewire = {
       enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-      ];
+      wireplumber.enable = true;
+      alsa.enable = true;
+      jack.enable = true;
+      pulse.enable = true;
+    };
+    xserver = {
+      enable = true;
+      displayManager.defaultSession = "none+i3";
+      windowManager.i3 = {
+        enable = true;
+        extraPackages = with pkgs; [
+          dmenu
+          i3status
+        ];
+      };
     };
   };
 
@@ -45,10 +54,7 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-    pulseaudio.enable = true;
   };
-
-  sound.enable = true;
 
   users = {
     mutableUsers = false;
