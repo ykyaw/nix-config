@@ -3,6 +3,7 @@
 {
   imports = [
     ../shared/brave.nix
+    ../shared/git.nix
     ../shared/vscode.nix
   ];
 
