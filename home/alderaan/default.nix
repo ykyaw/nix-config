@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   home = {
@@ -8,4 +8,26 @@
   };
 
   programs.home-manager.enable = true;
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    theme = {
+      name = "Catppuccin-Mocha-Standard-Teal-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "teal" ];
+        variant = "mocha";
+      };
+    };
+  };
+
+  home.pointerCursor = with config.gtk.cursorTheme; { inherit name package size; };
 }

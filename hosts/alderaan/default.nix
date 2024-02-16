@@ -79,6 +79,8 @@
     ];
   };
 
+  programs.dconf.enable = true;
+
   services.openssh.enable = true;
 
   # https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
