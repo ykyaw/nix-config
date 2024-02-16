@@ -61,7 +61,6 @@
         ncdu
         neovim
         nixpkgs-fmt
-        vscode
       ];
     };
   };

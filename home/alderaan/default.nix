@@ -3,7 +3,10 @@
 {
   imports = [
     ../shared/brave.nix
+    ../shared/vscode.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   home = {
     username = "thatoe";
