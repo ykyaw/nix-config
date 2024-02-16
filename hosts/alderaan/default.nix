@@ -5,9 +5,10 @@
     ./hardware-configuration.nix
 
     inputs.impermanence.nixosModules.impermanence
+
+    ../shared/nix.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
   boot.loader = {
