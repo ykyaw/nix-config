@@ -42,6 +42,10 @@
         ];
       };
     };
+    zram-generator = {
+      enable = true;
+      settings.zram0.zram-size = 8192;
+    };
   };
 
   hardware = {
