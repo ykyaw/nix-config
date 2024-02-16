@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -59,6 +61,18 @@
         vscode
       ];
     };
+  };
+
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      "/var/lib/nixos"
+      "/var/lib/systemd"
+      "/var/log"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
   };
 
   services.openssh.enable = true;
