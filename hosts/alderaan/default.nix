@@ -57,7 +57,6 @@
       initialPassword = "password11";
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
-        brave
         git
         ncdu
         neovim

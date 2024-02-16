@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../shared/brave.nix
+  ];
+
   home = {
     username = "thatoe";
     homeDirectory = /home/${config.home.username};
