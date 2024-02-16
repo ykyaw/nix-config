@@ -12,9 +12,36 @@
     username = "thatoe";
     homeDirectory = /home/${config.home.username};
     stateVersion = "23.11";
+    packages = with pkgs; [
+      azure-functions-core-tools
+      discord
+      gitkraken
+      libreoffice-fresh
+      ncdu
+      nixpkgs-fmt
+      nodejs
+      pavucontrol
+      playerctl
+      qbittorrent
+      spotify
+      sqlite
+      sqlitebrowser
+      teams-for-linux
+    ] ++ (with pkgs.libsForQt5; [
+      dolphin
+      kwallet
+      kwalletmanager
+    ]);
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+
+    git.enable = true;
+    kitty.enable = true;
+    mpv.enable = true;
+    neovim.enable = true;
+  };
 
   gtk = {
     enable = true;

@@ -66,12 +66,6 @@
       isNormalUser = true;
       initialPassword = "password11";
       extraGroups = [ "wheel" ];
-      packages = with pkgs; [
-        git
-        ncdu
-        neovim
-        nixpkgs-fmt
-      ];
     };
   };
 
