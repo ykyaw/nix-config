@@ -85,6 +85,27 @@
 
   services.openssh.enable = true;
 
+  fonts = {
+    fontconfig = {
+      enable = true;
+      cache32Bit = true;
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [ "MonaspiceAr NFM" ];
+      };
+    };
+    packages = with pkgs; [
+      dejavu_fonts
+      inter
+      liberation_ttf
+      noto-fonts
+      noto-fonts-emoji
+      (nerdfonts.override { fonts = [ "Monaspace" ]; })
+    ];
+  };
+
   # https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
   system.stateVersion = "23.11";
 }
