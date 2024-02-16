@@ -6,6 +6,7 @@
 
     inputs.impermanence.nixosModules.impermanence
 
+    ../shared/fish.nix
     ../shared/nix.nix
   ];
 
@@ -66,6 +67,7 @@
       isNormalUser = true;
       initialPassword = "password11";
       extraGroups = [ "wheel" ];
+      shell = pkgs.fish;
     };
   };
 
