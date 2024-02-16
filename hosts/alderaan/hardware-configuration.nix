@@ -1,6 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
+  imports = with inputs.nixos-hardware.nixosModules; [
+    common-pc
+    common-pc-ssd
+    common-cpu-amd
+    common-gpu-nvidia-nonprime
+  ];
+
   boot = {
     initrd.availableKernelModules = [ "nvme" "thunderbolt" "xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" ];
     kernelModules = [ "kvm-amd" ];
@@ -43,5 +50,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.enableRedistributableFirmware = lib.mkDefault true;
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
