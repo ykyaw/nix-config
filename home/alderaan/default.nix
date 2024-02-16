@@ -5,6 +5,7 @@
     ./i3.nix
 
     ../shared/brave.nix
+    ../shared/firefox.nix
     ../shared/fish.nix
     ../shared/git.nix
     ../shared/vscode.nix
