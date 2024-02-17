@@ -8,6 +8,7 @@
     ../shared/firefox.nix
     ../shared/fish.nix
     ../shared/git.nix
+    ../shared/kitty.nix
     ../shared/starship.nix
     ../shared/vscode.nix
     ../shared/zoxide.nix
@@ -43,8 +44,6 @@
   programs = {
     home-manager.enable = true;
 
-    git.enable = true;
-    kitty.enable = true;
     mpv.enable = true;
     neovim.enable = true;
   };
