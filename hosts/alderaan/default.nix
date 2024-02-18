@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
 
     inputs.impermanence.nixosModules.impermanence
+    inputs.sops-nix.nixosModules.sops
 
     ../shared/fish.nix
     ../shared/nix.nix
@@ -25,7 +26,16 @@
   time.timeZone = "Asia/Singapore";
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "no";
+      hostKeys = [
+        {
+          path = "/persist/etc/ssh/ssh_host_ed25519_key";
+          type = "ed25519";
+        }
+      ];
+    };
     pipewire = {
       enable = true;
       wireplumber.enable = true;
@@ -73,10 +83,19 @@
     mutableUsers = false;
     users.thatoe = {
       isNormalUser = true;
-      initialPassword = "password11";
+      hashedPasswordFile = config.sops.secrets.password.path;
       extraGroups = [ "wheel" ];
       shell = pkgs.fish;
     };
+  };
+
+  security.sudo.extraConfig = "Defaults lecture=never";
+
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+    secrets.password.neededForUsers = true;
   };
 
   environment.persistence."/persist" = {

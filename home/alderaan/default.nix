@@ -30,6 +30,7 @@
       nodejs
       pavucontrol
       qbittorrent
+      sops
       spotify
       sqlite
       sqlitebrowser
