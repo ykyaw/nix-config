@@ -37,6 +37,7 @@
       teams-for-linux
     ] ++ (with pkgs.libsForQt5; [
       dolphin
+      kio-extras
       kwallet
       kwalletmanager
     ]);

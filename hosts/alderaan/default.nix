@@ -46,7 +46,10 @@
     udisks2.enable = true;
     xserver = {
       enable = true;
-      displayManager.defaultSession = "none+i3";
+      displayManager = {
+        sddm.enable = true;
+        defaultSession = "none+i3";
+      };
       windowManager.i3.enable = true;
       excludePackages = [ pkgs.xterm ];
       monitorSection = ''
@@ -89,7 +92,10 @@
     };
   };
 
-  security.sudo.extraConfig = "Defaults lecture=never";
+  security = {
+    pam.services.login.enableKwallet = true;
+    sudo.extraConfig = "Defaults lecture=never";
+  };
 
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
