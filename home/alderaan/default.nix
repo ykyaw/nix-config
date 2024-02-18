@@ -48,6 +48,22 @@
     neovim.enable = true;
   };
 
+  services = {
+    dunst.enable = true;
+    udiskie.enable = true;
+  };
+
+  systemd.user = {
+    startServices = "sd-switch";
+    # Tray target for udiskie
+    targets.tray = {
+      Unit = {
+        Description = "Home Manager System Tray";
+        Requires = [ "graphical-session-pre.target" ];
+      };
+    };
+  };
+
   gtk = {
     enable = true;
     cursorTheme = {
