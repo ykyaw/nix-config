@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./nvidia.nix
 
     inputs.impermanence.nixosModules.impermanence
     inputs.sops-nix.nixosModules.sops
@@ -69,18 +70,7 @@
     };
   };
 
-  hardware = {
-    nvidia = {
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-    };
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    xone.enable = true;
-  };
+  hardware.xone.enable = true;
 
   users = {
     mutableUsers = false;
