@@ -14,4 +14,8 @@
       { id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xBrowserSync
     ];
   };
+
+  home.sessionVariables = {
+    CHROME_BIN = "brave";
+  };
 }

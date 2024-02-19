@@ -21,6 +21,7 @@
     homeDirectory = /home/${config.home.username};
     stateVersion = "23.11";
     packages = with pkgs; [
+      appimage-run
       azure-functions-core-tools
       discord
       gitkraken
@@ -91,5 +92,10 @@
   xresources.properties = {
     "Xft.dpi" = 96;
     "Xcursor.size" = 24;
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 }
