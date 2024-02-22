@@ -49,20 +49,9 @@
       enable = true;
       displayManager = {
         sddm.enable = true;
-        defaultSession = "none+i3";
+        defaultSession = "hyprland";
       };
-      windowManager.i3.enable = true;
       excludePackages = [ pkgs.xterm ];
-      monitorSection = ''
-        Option "DPI" "96 x 96"
-      '';
-      screenSection = ''
-        Option "metamodes" "3840x2160_120 +0+0"
-      '';
-      libinput = {
-        enable = true;
-        mouse.accelProfile = "flat";
-      };
     };
     zram-generator = {
       enable = true;
@@ -108,6 +97,7 @@
 
   programs = {
     dconf.enable = true;
+    hyprland.enable = true;
     steam.enable = true;
   };
 

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./i3.nix
+    ./hyprland.nix
 
     ../shared/brave.nix
     ../shared/firefox.nix
@@ -22,9 +22,11 @@
     stateVersion = "23.11";
     packages = with pkgs; [
       appimage-run
+      ark
       azure-functions-core-tools
       discord
       gitkraken
+      libnotify
       libreoffice-fresh
       ncdu
       nixpkgs-fmt
@@ -88,11 +90,6 @@
   };
 
   home.pointerCursor = with config.gtk.cursorTheme; { inherit name package size; };
-
-  xresources.properties = {
-    "Xft.dpi" = 96;
-    "Xcursor.size" = 24;
-  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
