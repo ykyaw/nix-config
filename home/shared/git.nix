@@ -11,6 +11,7 @@
     };
     extraConfig = {
       gpg.format = "ssh";
+      push.autoSetupRemote = true;
     };
   };
 }

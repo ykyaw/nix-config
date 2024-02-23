@@ -28,6 +28,30 @@
           notification = false;
           command = "${pkgs.unclutter}/bin/unclutter";
         }
+        {
+          notification = false;
+          command = "brave";
+        }
+        {
+          notification = false;
+          command = "code";
+        }
+        {
+          notification = false;
+          command = "discord";
+        }
+        {
+          notification = false;
+          command = "teams-for-linux";
+        }
+        {
+          notification = false;
+          command = "spotify";
+        }
+        {
+          notification = false;
+          command = "steam";
+        }
       ];
 
       modifier = "Mod4";
@@ -36,8 +60,8 @@
           Mod = config.xsession.windowManager.i3.config.modifier;
         in
         lib.mkOptionDefault {
-          "${Mod}+b" = "exec brave";
-          "${Mod}+c" = "exec code";
+          "${Mod}+b" = "exec --no-startup-id brave";
+          "${Mod}+c" = "exec --no-startup-id code";
           "${Mod}+e" = "exec dolphin";
           "${Mod}+space" = "exec rofi -show drun";
           "${Mod}+Tab" = "exec rofi -show window";
@@ -85,9 +109,12 @@
       ];
 
       assigns = {
-        "4" = [{ class = "^teams-for-linux$"; }];
-        "5" = [{ class = "^Spotify$"; }];
-        "6" = [{ class = "^Steam$"; }];
+        "number 1" = [{ class = "Brave-browser"; } { class = "firefox"; }];
+        "number 2" = [{ class = "Code"; }];
+        "number 3" = [{ class = "GitKraken"; }];
+        "number 4" = [{ class = "discord"; } { class = "teams-for-linux"; }];
+        "number 5" = [{ class = "Spotify"; }];
+        "number 6" = [{ class = "steam"; }];
       };
     };
   };
