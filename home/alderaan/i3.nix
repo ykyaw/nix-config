@@ -110,7 +110,7 @@
 
       assigns = {
         "number 1" = [{ class = "Brave-browser"; } { class = "firefox"; }];
-        "number 2" = [{ class = "Code"; }];
+        "number 2" = [{ class = "Code"; window_type = "normal"; }];
         "number 3" = [{ class = "GitKraken"; }];
         "number 4" = [{ class = "discord"; } { class = "teams-for-linux"; }];
         "number 5" = [{ class = "Spotify"; }];

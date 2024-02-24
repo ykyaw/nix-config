@@ -20,23 +20,29 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: {
-    nixosConfigurations = {
-      alderaan = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/alderaan
-        ];
-      };
-    };
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+    let
+      inherit (self) outputs;
+    in
+    {
+      overlays = import ./overlays { inherit inputs; };
 
-    homeConfigurations = {
-      "thatoe@alderaan" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./home/alderaan
-        ];
+      nixosConfigurations = {
+        alderaan = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/alderaan
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        "thatoe@alderaan" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [
+            ./home/alderaan
+          ];
+        };
       };
     };
-  };
 }

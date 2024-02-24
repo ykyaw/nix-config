@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, outputs, pkgs, ... }:
 
 {
   imports = [
@@ -12,7 +12,10 @@
     ../shared/nix.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = builtins.attrValues outputs.overlays;
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
