@@ -69,6 +69,7 @@
           "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
           "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
           "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+          "${Mod}+Mod1+c" = "exec --no-startup-id fish -c autoclicker";
 
           "${Mod}+h" = "focus left";
           "${Mod}+j" = "focus down";
