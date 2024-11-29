@@ -5,6 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -20,7 +22,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle }:
   let
     configuration = { config, pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
@@ -62,6 +64,16 @@
     # $ darwin-rebuild build --flake .#macalania
     darwinConfigurations."macalania" = nix-darwin.lib.darwinSystem {
       modules = [
+        home-manager.darwinModules.home-manager
+        {
+          users.users.thatoe = {
+            name = "thatoe";
+            home = "/Users/thatoe";
+          };
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.thatoe = import ./home.nix;
+        }
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
