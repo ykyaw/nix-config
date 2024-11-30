@@ -20,6 +20,24 @@
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;
     stateVersion = 5;
+    defaults.dock = {
+      autohide = true;
+      mru-spaces = false;
+      persistent-apps = [
+        "${pkgs.brave}/Applications/Brave Browser.app"
+        "/Applications/Chromium.app"
+        "${pkgs.kitty}/Applications/kitty.app"
+        "/Applications/Cursor.app"
+        "${pkgs.gitkraken}/Applications/GitKraken.app"
+        "${pkgs.dbeaver-bin}/Applications/DBeaver.app"
+        "/Applications/Microsoft Teams.app"
+        "${pkgs.spotify}/Applications/Spotify.app"
+      ];
+      persistent-others = [
+        "/Users/thatoe/Downloads"
+      ];
+      show-recents = false;
+    };
   };
 
   users.users.thatoe = {
