@@ -37,57 +37,18 @@
       homebrew-cask,
       homebrew-bundle,
     }:
-    let
-      configuration =
-        { config, pkgs, ... }:
-
-        {
-          environment.systemPackages = [
-            pkgs.vim
-          ];
-
-          nix.settings.experimental-features = "nix-command flakes";
-
-          nixpkgs = {
-            config.allowUnfree = true;
-            hostPlatform = "aarch64-darwin";
-          };
-
-          system = {
-            configurationRevision = self.rev or self.dirtyRev or null;
-            stateVersion = 5;
-          };
-
-          homebrew = {
-            enable = true;
-            casks = [
-              "android-studio"
-              "cursor"
-              "eloston-chromium"
-              "flutter"
-              "intune-company-portal"
-              "microsoft-auto-update"
-              "microsoft-teams"
-            ];
-            global.autoUpdate = false;
-            onActivation.cleanup = "zap";
-            taps = builtins.attrNames config.nix-homebrew.taps;
-          };
-        };
-    in
     {
       darwinConfigurations."macalania" = nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          inherit self;
+        };
         modules = [
           home-manager.darwinModules.home-manager
           {
-            users.users.thatoe = {
-              name = "thatoe";
-              home = "/Users/thatoe";
-            };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.thatoe = import ./home.nix;
+              users.thatoe = import ./modules/darwin/home.nix;
             };
           }
           nix-homebrew.darwinModules.nix-homebrew
@@ -103,7 +64,7 @@
               mutableTaps = false;
             };
           }
-          configuration
+          ./hosts/darwin/default.nix
         ];
       };
     };
