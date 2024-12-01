@@ -9,7 +9,6 @@
       cocoapods
       dbeaver-bin
       gitkraken
-      neovim
       nixd
       nixfmt-rfc-style
       nodejs_20
@@ -86,6 +85,13 @@
         color16 = "#ff9e64";
         color17 = "#db4b4b";
       };
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
     };
     starship = {
       enable = true;

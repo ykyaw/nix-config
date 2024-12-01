@@ -54,7 +54,12 @@
     shell = pkgs.fish;
   };
 
-  environment.shells = [ pkgs.fish ];
+  environment = {
+    shells = [ pkgs.fish ];
+    variables = {
+      CHROME_EXECUTABLE = "/Applications/Chromium.app/Contents/MacOS/Chromium";
+    };
+  };
 
   programs.fish.enable = true;
 
