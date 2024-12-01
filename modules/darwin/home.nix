@@ -15,6 +15,7 @@
       raycast
       spotify
     ];
+    file.".hushlogin".text = "";
   };
 
   programs = {
@@ -35,10 +36,11 @@
         nu = "nix flake update ~/development/nix-config";
       };
     };
+    fzf.enable = true;
     kitty = {
       enable = true;
       settings = {
-        background_opacity = 0.75;
+        background_opacity = 0.9;
         background_blur = 32;
         window_margin_width = 5;
         # Tokyo Night
@@ -80,6 +82,14 @@
         color16 = "#ff9e64";
         color17 = "#db4b4b";
       };
+    };
+    starship = {
+      enable = true;
+      settings.add_newline = false;
+    };
+    zoxide = {
+      enable = true;
+      options = [ "--cmd cd" ];
     };
   };
 }
