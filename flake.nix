@@ -48,7 +48,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.thatoe = import ./modules/darwin/home.nix;
+              users.thatoe = import ./home/darwin;
             };
           }
           nix-homebrew.darwinModules.nix-homebrew
