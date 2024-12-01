@@ -62,6 +62,8 @@
 
   programs.fish.enable = true;
 
+  fonts.packages = [ pkgs.nerd-fonts.comic-shanns-mono ];
+
   homebrew = {
     enable = true;
     casks = [

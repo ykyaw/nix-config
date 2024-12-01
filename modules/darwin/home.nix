@@ -39,6 +39,7 @@
     fzf.enable = true;
     kitty = {
       enable = true;
+      font.name = "ComicShannsMono Nerd Font";
       settings = {
         background_opacity = 0.9;
         background_blur = 32;
