@@ -46,6 +46,10 @@
         show-recents = false;
       };
     };
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
+    };
   };
 
   users.users.thatoe = {
