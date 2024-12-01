@@ -35,7 +35,7 @@
       functions.fish_greeting = "";
       shellAliases = {
         ns = "darwin-rebuild switch --flake ~/development/nix-config#macalania";
-        nu = "nix flake update ~/development/nix-config";
+        nu = "nix flake update --flake ~/development/nix-config";
       };
     };
     fzf.enable = true;
