@@ -6,10 +6,6 @@
 }:
 
 {
-  environment.systemPackages = [
-    pkgs.vim
-  ];
-
   nix.settings.experimental-features = "nix-command flakes";
 
   nixpkgs = {
@@ -68,7 +64,9 @@
     enable = true;
     casks = [
       "android-studio"
+      "caffeine"
       "cursor"
+      "docker"
       "eloston-chromium"
       "flutter"
       "intune-company-portal"

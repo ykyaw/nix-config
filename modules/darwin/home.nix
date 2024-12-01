@@ -6,13 +6,16 @@
     homeDirectory = "/Users/thatoe";
     stateVersion = "24.05";
     packages = with pkgs; [
+      cocoapods
       dbeaver-bin
       gitkraken
       neovim
       nixd
       nixfmt-rfc-style
       nodejs_20
+      postgresql
       raycast
+      redis
       spotify
     ];
     file.".hushlogin".text = "";
