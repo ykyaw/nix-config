@@ -50,6 +50,8 @@
 
   programs.fish.enable = true;
 
+  fonts.packages = [ pkgs.fira-code-nerdfont ];
+
   users = {
     knownUsers = [ "thatoe" ];
     users.thatoe = {
