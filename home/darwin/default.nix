@@ -9,7 +9,6 @@
       cocoapods
       dbeaver-bin
       gitkraken
-      neovim
       nixd
       nixfmt-rfc-style
       nodejs_20
@@ -52,6 +51,13 @@
         window_margin_width = 5;
       };
       themeFile = "gruvbox-dark-hard";
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
     };
     starship = {
       enable = true;

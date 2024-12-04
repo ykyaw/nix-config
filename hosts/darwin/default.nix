@@ -62,6 +62,10 @@
     };
   };
 
+  environment.variables = {
+    CHROME_EXECUTABLE = "/Applications/Chromium.app/Contents/MacOS/Chromium";
+  };
+
   homebrew = {
     enable = true;
     casks = [
