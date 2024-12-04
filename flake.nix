@@ -3,11 +3,30 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nix-darwin.follows = "nix-darwin";
+      };
+    };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle }:
   let
-    configuration = { pkgs, ... }: {
+    configuration = { config, pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
@@ -29,13 +48,42 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      homebrew = {
+        enable = true;
+        casks = [
+          "intune-company-portal"
+          "microsoft-auto-update"
+        ];
+        masApps = {
+          Xcode = 497799835;
+        };
+        global.autoUpdate = false;
+        onActivation.cleanup = "zap";
+        taps = builtins.attrNames config.nix-homebrew.taps;
+      };
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#macalania
     darwinConfigurations."macalania" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            user = "thatoe";
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+              "homebrew/homebrew-bundle" = homebrew-bundle;
+            };
+            mutableTaps = false;
+          };
+        }
+        configuration
+      ];
     };
   };
 }
