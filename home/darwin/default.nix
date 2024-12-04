@@ -29,5 +29,14 @@
         { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # SponsorBlock for YouTube - Skip Sponsorships
       ];
     };
+    kitty = {
+      enable = true;
+      settings = {
+        background_opacity = 0.9;
+        background_blur = 32;
+        window_margin_width = 5;
+      };
+      themeFile = "gruvbox-dark-hard";
+    };
   };
 }
