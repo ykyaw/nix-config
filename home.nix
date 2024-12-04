@@ -17,7 +17,15 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    cocoapods
+    dbeaver-bin
+    gitkraken
+    neovim
+    nodejs_20
+    raycast
+    spotify
+    vscode
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -73,4 +81,12 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+    extensions = [
+      { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden Password Manager
+      { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # SponsorBlock for YouTube - Skip Sponsorships
+    ];
+  };
 }

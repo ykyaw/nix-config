@@ -1,9 +1,9 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
@@ -38,6 +38,8 @@
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
+      nixpkgs.config.allowUnfree = true;
+
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
 
@@ -54,8 +56,14 @@
       homebrew = {
         enable = true;
         casks = [
+          "android-studio"
+          "caffeine"
+          "docker"
+          "eloston-chromium"
+          "flutter"
           "intune-company-portal"
           "microsoft-auto-update"
+          "microsoft-teams"
         ];
         masApps = {
           Xcode = 497799835;
