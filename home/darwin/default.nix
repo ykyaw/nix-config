@@ -17,6 +17,7 @@
       spotify
       vscode
     ];
+    file.".hushlogin".text = "";
   };
 
   programs = {
@@ -38,6 +39,7 @@
         nu = "nix flake update --flake ~/development/nix-config";
       };
     };
+    fzf.enable = true;
     kitty = {
       enable = true;
       settings = {
@@ -46,6 +48,14 @@
         window_margin_width = 5;
       };
       themeFile = "gruvbox-dark-hard";
+    };
+    starship = {
+      enable = true;
+      settings.add_newline = false;
+    };
+    zoxide = {
+      enable = true;
+      options = [ "--cmd cd" ];
     };
   };
 }
