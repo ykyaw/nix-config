@@ -29,6 +29,15 @@
         { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # SponsorBlock for YouTube - Skip Sponsorships
       ];
     };
+    fish = {
+      enable = true;
+      functions.fish_greeting = "";
+      interactiveShellInit = "fish_vi_key_bindings";
+      shellAliases = {
+        ns = "darwin-rebuild switch --flake ~/development/nix-config#macalania";
+        nu = "nix flake update --flake ~/development/nix-config";
+      };
+    };
     kitty = {
       enable = true;
       settings = {

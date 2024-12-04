@@ -36,9 +36,16 @@
     };
   };
 
-  users.users.thatoe = {
-    name = "thatoe";
-    home = "/Users/thatoe";
+  programs.fish.enable = true;
+
+  users = {
+    knownUsers = [ "thatoe" ];
+    users.thatoe = {
+      uid = 501;
+      name = "thatoe";
+      home = "/Users/thatoe";
+      shell = pkgs.fish;
+    };
   };
 
   homebrew = {
