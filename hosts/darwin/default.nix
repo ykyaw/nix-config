@@ -52,6 +52,7 @@
         persistent-apps = [
           "${pkgs.brave}/Applications/Brave Browser.app"
           "/Applications/Chromium.app"
+          "/Applications/Microsoft Outlook.app"
           "${pkgs.kitty}/Applications/kitty.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
           "${pkgs.gitkraken}/Applications/GitKraken.app"
@@ -99,6 +100,8 @@
       "flutter"
       "intune-company-portal"
       "microsoft-auto-update"
+      "microsoft-azure-storage-explorer"
+      "microsoft-outlook"
       "microsoft-teams"
     ];
     masApps = {

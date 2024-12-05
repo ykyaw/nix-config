@@ -6,9 +6,11 @@
     homeDirectory = "/Users/thatoe";
     stateVersion = "24.05";
     packages = with pkgs; [
+      azure-cli
       cocoapods
       dbeaver-bin
       gitkraken
+      kubectl
       nixd
       nixfmt-rfc-style
       nodejs_20
