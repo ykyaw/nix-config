@@ -20,6 +20,7 @@
 
   services = {
     displayManager.defaultSession = "none+i3";
+    gnome.gnome-keyring.enable = true;
     openssh.enable = true;
     pipewire = {
       enable = true;
@@ -36,6 +37,8 @@
       };
     };
   };
+
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
   hardware.nvidia.open = true;
 

@@ -12,7 +12,6 @@
     docker-compose
     dunst
     ghostscript
-    gnome-keyring
     graphicsmagick
     maim
     mpv
@@ -23,7 +22,6 @@
     numlockx
     pavucontrol
     playerctl
-    polkit_gnome
     postgresql
     qbittorrent
     redis
