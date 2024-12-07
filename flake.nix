@@ -46,7 +46,8 @@
     {
       nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
         modules = [
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
