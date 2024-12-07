@@ -33,7 +33,7 @@
         enable = true;
         extraPackages = with pkgs; [
           dmenu
-          i3status
+          i3lock
         ];
       };
     };
@@ -52,14 +52,6 @@
       isNormalUser = true;
       hashedPassword = "$y$j9T$VZoA75eKJ68pcNpc15q5E0$kCzu1GKw8sINYrHwdmyYExsKjAP1b36lED6.fFTwEg2";
       extraGroups = [ "wheel" ];
-      packages = with pkgs; [
-        git
-        ncdu
-        neovim
-        nixd
-        nixfmt-rfc-style
-        vscode
-      ];
     };
   };
 
