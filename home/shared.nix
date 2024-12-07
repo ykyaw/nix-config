@@ -14,7 +14,6 @@
       nixfmt-rfc-style
       nodejs_20
       spotify
-      vscode
     ];
   };
 
@@ -88,6 +87,30 @@
     starship = {
       enable = true;
       settings.add_newline = false;
+    };
+    vscode = {
+      enable = true;
+      enableUpdateCheck = false;
+      userSettings = {
+        "editor.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace";
+        "editor.fontLigatures" = true;
+        "editor.formatOnPaste" = true;
+        "editor.formatOnSave" = true;
+        "editor.lineNumbers" = "relative";
+        "editor.minimap.enabled" = false;
+        "editor.rulers" = [ 80 ];
+        "editor.tabSize" = 2;
+        "extensions.ignoreRecommendations" = true;
+        "git.autofetch" = true;
+        "git.enableCommitSigning" = true;
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
+        "telemetry.telemetryLevel" = "off";
+        "terminal.integrated.minimumContrastRatio" = 1;
+        "window.menuBarVisibility" = "toggle";
+        "workbench.colorTheme" = "Nord";
+        "workbench.iconTheme" = "material-icon-theme";
+      };
     };
     zoxide = {
       enable = true;
