@@ -44,13 +44,18 @@
       homebrew-bundle,
     }:
     {
-      nixosConfigurations = {
-        zanarkand = nixpkgs.lib.nixosSystem {
-          modules = [
-            impermanence.nixosModules.impermanence
-            ./hosts/nixos
-          ];
-        };
+      nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
+        modules = [
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.thatoe = import ./home/nixos;
+            };
+          }
+          impermanence.nixosModules.impermanence
+          ./hosts/nixos
+        ];
       };
 
       darwinConfigurations."macalania" = nix-darwin.lib.darwinSystem {
