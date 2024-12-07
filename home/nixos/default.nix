@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../shared.nix
+  ];
+
   home = {
     username = "thatoe";
     homeDirectory = "/home/thatoe";

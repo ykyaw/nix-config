@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ../shared.nix
+  ];
+
   home = {
     username = "thatoe";
     homeDirectory = "/Users/thatoe";
@@ -23,14 +27,6 @@
 
   programs = {
     home-manager.enable = true;
-    chromium = {
-      enable = true;
-      package = pkgs.brave;
-      extensions = [
-        { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden Password Manager
-        { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # SponsorBlock for YouTube - Skip Sponsorships
-      ];
-    };
     fish = {
       enable = true;
       functions.fish_greeting = "";
