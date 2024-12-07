@@ -42,6 +42,14 @@
       homebrew-bundle,
     }:
     {
+      nixosConfigurations = {
+        zanarkand = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/nixos
+          ];
+        };
+      };
+
       darwinConfigurations."macalania" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit self; };
         modules = [
