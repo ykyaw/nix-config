@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages =
@@ -26,7 +26,6 @@
           fish
           fzf
           ghostscript
-          git
           gnome-keyring
           graphicsmagick
           inter
@@ -65,24 +64,42 @@
         ]
     );
 
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave;
-    extensions =
-      [
-        { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden Password Manager
-        { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # SponsorBlock for YouTube - Skip Sponsorships
-      ]
-      ++ (
-        if pkgs.stdenv.isLinux then
-          [
-            { id = "dnhpnfgdlenaccegplpojghhmaamnnfp"; } # Augmented Steam
-            { id = "ngonfifpkpeefnhelnfdkficaiihklid"; } # ProtonDB for Steam
-            { id = "kdbmhfkmnlmbkgbabkdealhhbfhlmmon"; } # SteamDB
-            { id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xBrowserSync
-          ]
-        else
-          [ ]
-      );
+  programs = {
+    chromium = {
+      enable = true;
+      package = pkgs.brave;
+      extensions =
+        [
+          { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden Password Manager
+          { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # SponsorBlock for YouTube - Skip Sponsorships
+        ]
+        ++ (
+          if pkgs.stdenv.isLinux then
+            [
+              { id = "dnhpnfgdlenaccegplpojghhmaamnnfp"; } # Augmented Steam
+              { id = "ngonfifpkpeefnhelnfdkficaiihklid"; } # ProtonDB for Steam
+              { id = "kdbmhfkmnlmbkgbabkdealhhbfhlmmon"; } # SteamDB
+              { id = "lcbjdhceifofjlpecfpeimnnphbcjgnc"; } # xBrowserSync
+            ]
+          else
+            [ ]
+        );
+    };
+    git = {
+      enable = true;
+      userName = "Ye Thatoe Kyaw";
+      userEmail = "thatoe@pm.me";
+      signing = {
+        key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        signByDefault = true;
+      };
+      extraConfig = {
+        gpg = {
+          format = "ssh";
+          ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
+        };
+        push.autoSetupRemote = true;
+      };
+    };
   };
 }
