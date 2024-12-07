@@ -76,6 +76,17 @@
 
   programs.dconf.enable = true;
 
+  fonts.fontconfig = {
+    enable = true;
+    cache32Bit = true;
+    defaultFonts = {
+      emoji = [ "Noto Color Emoji" ];
+      serif = [ "Noto Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "FiraCode Nerd Font" ];
+    };
+  };
+
   # https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
   system.stateVersion = "24.05";
 }

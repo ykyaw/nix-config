@@ -17,7 +17,6 @@
     ++ (
       if pkgs.stdenv.isLinux then
         [
-          dejavu_fonts
           dex
           discord
           docker
@@ -28,9 +27,7 @@
           ghostscript
           gnome-keyring
           graphicsmagick
-          inter
           kitty
-          liberation_ttf
           maim
           mpv
           ncdu
@@ -38,7 +35,6 @@
           nemo-fileroller
           neovim
           netcat-gnu
-          noto-fonts
           numlockx
           pavucontrol
           playerctl
