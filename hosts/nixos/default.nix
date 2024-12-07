@@ -78,6 +78,8 @@
     ];
   };
 
+  programs.dconf.enable = true;
+
   # https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
   system.stateVersion = "24.05";
 }
