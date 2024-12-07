@@ -41,6 +41,11 @@
 
   hardware.nvidia.open = true;
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 10;
+  };
+
   users = {
     mutableUsers = false;
     users.thatoe = {
