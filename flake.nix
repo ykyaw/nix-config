@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +36,7 @@
     {
       self,
       nixpkgs,
+      nixos-hardware,
       nix-darwin,
       home-manager,
       impermanence,
@@ -45,18 +47,27 @@
     }:
     {
       nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
-        modules = [
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.thatoe = import ./home/nixos;
-            };
-          }
-          impermanence.nixosModules.impermanence
-          ./hosts/nixos
-        ];
+        modules =
+          with nixos-hardware.nixosModules;
+          [
+            common-pc
+            common-pc-ssd
+            common-cpu-amd
+            common-cpu-amd-pstate
+            common-gpu-nvidia-nonprime
+          ]
+          ++ [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.thatoe = import ./home/nixos;
+              };
+            }
+            impermanence.nixosModules.impermanence
+            ./hosts/nixos
+          ];
       };
 
       darwinConfigurations."macalania" = nix-darwin.lib.darwinSystem {
