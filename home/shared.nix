@@ -1,9 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  home.packages =
-    with pkgs;
-    [
+  home = {
+    username = "thatoe";
+    homeDirectory = if pkgs.stdenv.isLinux then "/home/thatoe" else "/Users/thatoe";
+    stateVersion = "24.05";
+    packages = with pkgs; [
       azure-cli
       dbeaver-bin
       gitkraken
@@ -13,54 +15,11 @@
       nodejs_20
       spotify
       vscode
-    ]
-    ++ (
-      if pkgs.stdenv.isLinux then
-        [
-          dex
-          discord
-          docker
-          docker-compose
-          dunst
-          fish
-          fzf
-          ghostscript
-          gnome-keyring
-          graphicsmagick
-          kitty
-          maim
-          mpv
-          ncdu
-          nemo
-          nemo-fileroller
-          neovim
-          netcat-gnu
-          numlockx
-          pavucontrol
-          playerctl
-          polkit_gnome
-          postgresql
-          qbittorrent
-          redis
-          ripgrep
-          rofi
-          starship
-          steam
-          teams-for-linux
-          udiskie
-          ungoogled-chromium
-          xclip
-          xdotool
-          zoxide
-        ]
-      else
-        [
-          cocoapods
-          raycast
-        ]
-    );
+    ];
+  };
 
   programs = {
+    home-manager.enable = true;
     chromium = {
       enable = true;
       package = pkgs.brave;
@@ -81,6 +40,18 @@
             [ ]
         );
     };
+    fish = {
+      enable = true;
+      functions.fish_greeting = "";
+      interactiveShellInit = "fish_vi_key_bindings";
+      shellAliases = {
+        ns =
+          (if pkgs.stdenv.isLinux then "sudo nixos" else "darwin")
+          + "-rebuild switch --flake ~/development/nix-config";
+        nu = "nix flake update --flake ~/development/nix-config";
+      };
+    };
+    fzf.enable = true;
     git = {
       enable = true;
       userName = "Ye Thatoe Kyaw";
@@ -96,6 +67,31 @@
         };
         push.autoSetupRemote = true;
       };
+    };
+    kitty = {
+      enable = true;
+      font.name = "FiraCode Nerd Font";
+      settings = {
+        background_opacity = 0.9;
+        background_blur = 32;
+        window_margin_width = 5;
+      };
+      themeFile = "Nord";
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+    };
+    starship = {
+      enable = true;
+      settings.add_newline = false;
+    };
+    zoxide = {
+      enable = true;
+      options = [ "--cmd cd" ];
     };
   };
 }

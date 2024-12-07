@@ -5,13 +5,37 @@
     ../shared.nix
   ];
 
-  home = {
-    username = "thatoe";
-    homeDirectory = "/home/thatoe";
-    stateVersion = "24.05";
-  };
-
-  programs.home-manager.enable = true;
+  home.packages = with pkgs; [
+    dex
+    discord
+    docker
+    docker-compose
+    dunst
+    ghostscript
+    gnome-keyring
+    graphicsmagick
+    maim
+    mpv
+    ncdu
+    nemo
+    nemo-fileroller
+    netcat-gnu
+    numlockx
+    pavucontrol
+    playerctl
+    polkit_gnome
+    postgresql
+    qbittorrent
+    redis
+    ripgrep
+    rofi
+    steam
+    teams-for-linux
+    udiskie
+    ungoogled-chromium
+    xclip
+    xdotool
+  ];
 
   gtk = {
     enable = true;

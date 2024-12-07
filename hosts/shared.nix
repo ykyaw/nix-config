@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
     settings.experimental-features = "nix-command flakes";
     gc = {
@@ -9,6 +11,10 @@
     };
     optimise.automatic = true;
   };
+
+  users.users.thatoe.shell = pkgs.fish;
+
+  programs.fish.enable = true;
 
   fonts = {
     packages = with pkgs; [

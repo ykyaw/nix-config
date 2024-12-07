@@ -10,10 +10,7 @@
     ../shared.nix
   ];
 
-  nixpkgs = {
-    hostPlatform = "aarch64-darwin";
-    config.allowUnfree = true;
-  };
+  nixpkgs.hostPlatform = "aarch64-darwin";
 
   system = {
     configurationRevision = self.rev or self.dirtyRev or null;
@@ -55,15 +52,12 @@
     };
   };
 
-  programs.fish.enable = true;
-
   users = {
     knownUsers = [ "thatoe" ];
     users.thatoe = {
       uid = 501;
       name = "thatoe";
       home = "/Users/thatoe";
-      shell = pkgs.fish;
     };
   };
 

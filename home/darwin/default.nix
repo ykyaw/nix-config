@@ -1,54 +1,15 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ../shared.nix
   ];
 
   home = {
-    username = "thatoe";
-    homeDirectory = "/Users/thatoe";
-    stateVersion = "24.05";
+    packages = with pkgs; [
+      cocoapods
+      raycast
+    ];
     file.".hushlogin".text = "";
-  };
-
-  programs = {
-    home-manager.enable = true;
-    fish = {
-      enable = true;
-      functions.fish_greeting = "";
-      interactiveShellInit = "fish_vi_key_bindings";
-      shellAliases = {
-        ns = "darwin-rebuild switch --flake ~/development/nix-config#macalania";
-        nu = "nix flake update --flake ~/development/nix-config";
-      };
-    };
-    fzf.enable = true;
-    kitty = {
-      enable = true;
-      font = {
-        name = "FiraCode Nerd Font";
-        size = 12;
-      };
-      settings = {
-        background_opacity = 0.9;
-        background_blur = 32;
-        window_margin_width = 5;
-      };
-      themeFile = "gruvbox-dark-hard";
-    };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-    };
-    starship = {
-      enable = true;
-      settings.add_newline = false;
-    };
-    zoxide = {
-      enable = true;
-      options = [ "--cmd cd" ];
-    };
   };
 }
