@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence.url = "github:nix-community/impermanence";
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
       inputs = {
@@ -36,6 +37,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      impermanence,
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
@@ -45,6 +47,7 @@
       nixosConfigurations = {
         zanarkand = nixpkgs.lib.nixosSystem {
           modules = [
+            impermanence.nixosModules.impermanence
             ./hosts/nixos
           ];
         };

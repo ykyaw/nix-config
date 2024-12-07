@@ -92,6 +92,20 @@
   #   wget
   # ];
 
+  environment.persistence."/nix/persist" = {
+    hideMounts = true;
+    directories = [
+      "/var/log"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      # TODO: home impermanence
+      { directory = "/home/thatoe"; user = "thatoe"; group = "users"; mode = "0700"; }
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
