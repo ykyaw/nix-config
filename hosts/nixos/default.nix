@@ -94,6 +94,12 @@
   programs = {
     dconf.enable = true;
     fish.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
   };
 
   users = {
@@ -103,9 +109,6 @@
       hashedPassword = "$y$j9T$0ZrzA.r1YI4LhvzNltoJH.$3NcX7NDj3lar9hLn7VsJvHk8SDf5JulhMnZhagb.yO2";
       extraGroups = [ "wheel" ];
       shell = pkgs.fish;
-      packages = with pkgs; [
-        ncdu
-      ];
     };
   };
 

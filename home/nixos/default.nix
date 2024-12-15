@@ -6,9 +6,24 @@
     homeDirectory = "/home/thatoe";
     stateVersion = "24.05";
     packages = with pkgs; [
+      dbeaver-bin
+      discord
+      google-chrome
+      gitkraken
+      ncdu
       nixd
       nixfmt-rfc-style
+      nodejs_20
+      pavucontrol
+      qbittorrent
+      spotify
+      teams-for-linux
     ];
+  };
+
+  services.dunst = {
+    enable = true;
+    iconTheme = { inherit (config.gtk.iconTheme) name package; };
   };
 
   programs = {
@@ -59,6 +74,7 @@
       };
       themeFile = "tokyo_night_night";
     };
+    mpv.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;
