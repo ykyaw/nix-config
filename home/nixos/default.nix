@@ -82,6 +82,21 @@
       vimAlias = true;
       vimdiffAlias = true;
     };
+    rofi = {
+      enable = true;
+      extraConfig = {
+        modi = "run,drun,window";
+        icon-theme = config.gtk.iconTheme.name;
+        show-icons = true;
+        terminal = "kitty";
+        drun-display-format = "{icon} {name}";
+        display-run = "   Run ";
+        display-drun = "   Apps ";
+        display-window = " 󰕰  Window";
+        sidebar-mode = true;
+      };
+      font = "Comic Code Ligatures 12";
+    };
     starship = {
       enable = true;
       settings.add_newline = false;
