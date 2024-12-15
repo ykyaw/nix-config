@@ -91,7 +91,10 @@
 
   hardware.nvidia.open = true;
 
-  programs.fish.enable = true;
+  programs = {
+    dconf.enable = true;
+    fish.enable = true;
+  };
 
   users = {
     mutableUsers = false;

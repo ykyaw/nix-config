@@ -98,4 +98,30 @@
       options = [ "--cmd cd" ];
     };
   };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    theme = {
+      name = "Tokyonight-Dark";
+      package = pkgs.tokyo-night-gtk.override {
+        colorVariants = [ "dark" ];
+        tweakVariants = [ "black" ];
+      };
+    };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11 = {
+      enable = true;
+      defaultCursor = config.home.pointerCursor.name;
+    };
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
 }
