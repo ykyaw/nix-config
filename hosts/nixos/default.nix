@@ -54,8 +54,11 @@
 
   time.timeZone = "Asia/Singapore";
 
+  security.pam.services.lightdm.enableGnomeKeyring = true;
+
   services = {
     displayManager.defaultSession = "none+i3";
+    gnome.gnome-keyring.enable = true;
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";
