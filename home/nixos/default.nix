@@ -26,6 +26,14 @@
           nu = "nix flake update ${flake}";
         };
     };
-  programs.home-manager.enable = true;
+    fzf.enable = true;
+    starship = {
+      enable = true;
+      settings.add_newline = false;
+    };
+    zoxide = {
+      enable = true;
+      options = [ "--cmd cd" ];
+    };
   };
 }
