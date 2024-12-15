@@ -100,5 +100,29 @@
     };
   };
 
+  fonts = {
+    packages = with pkgs; [
+      dejavu_fonts
+      liberation_ttf
+      nerd-fonts.symbols-only
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-color-emoji
+      noto-fonts-extra
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [ "Comic Code Ligatures" ];
+      };
+      subpixel.rgba = "rgb";
+      cache32Bit = true;
+    };
+  };
+
   system.stateVersion = "24.05";
 }
