@@ -98,7 +98,6 @@
       extraGroups = [ "wheel" ];
       shell = pkgs.fish;
       packages = with pkgs; [
-        brave
         git
         ncdu
         neovim

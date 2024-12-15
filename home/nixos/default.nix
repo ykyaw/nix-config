@@ -13,6 +13,18 @@
 
   programs = {
     home-manager.enable = true;
+    chromium = {
+      enable = true;
+      package = pkgs.brave;
+      extensions = [
+        "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
+        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden Password Manager
+        "ngonfifpkpeefnhelnfdkficaiihklid" # ProtonDB for Steam
+        "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for YouTube - Skip Sponsorships
+        "kdbmhfkmnlmbkgbabkdealhhbfhlmmon" # SteamDB
+        "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
+      ];
+    };
     fish = {
       enable = true;
       functions.fish_greeting = "";
