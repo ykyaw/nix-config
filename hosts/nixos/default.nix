@@ -81,12 +81,15 @@
 
   hardware.nvidia.open = true;
 
+  programs.fish.enable = true;
+
   users = {
     mutableUsers = false;
     users.thatoe = {
       isNormalUser = true;
       hashedPassword = "$y$j9T$0ZrzA.r1YI4LhvzNltoJH.$3NcX7NDj3lar9hLn7VsJvHk8SDf5JulhMnZhagb.yO2";
       extraGroups = [ "wheel" ];
+      shell = pkgs.fish;
       packages = with pkgs; [
         brave
         git
