@@ -56,6 +56,10 @@
 
   services = {
     displayManager.defaultSession = "none+i3";
+    libinput = {
+      enable = true;
+      mouse.accelProfile = "flat";
+    };
     openssh = {
       enable = true;
       settings = {
@@ -69,6 +73,9 @@
     };
     xserver = {
       enable = true;
+      screenSection = ''
+        Option "metamodes" "3840x2160_120 +0+0"
+      '';
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
