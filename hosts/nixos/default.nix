@@ -21,6 +21,11 @@
     efi.canTouchEfiVariables = true;
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
+
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
