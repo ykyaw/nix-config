@@ -5,7 +5,15 @@
     ./hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    settings.experimental-features = "nix-command flakes";
+    optimise.automatic = true;
+    gc = {
+      options = "--delete-older-than 14d";
+      automatic = true;
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   boot.loader = {
@@ -20,6 +28,7 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
+      "/var/lib/systemd/timers"
       # TODO: home impermanence
       {
         directory = "/home/thatoe";
