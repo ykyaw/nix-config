@@ -102,7 +102,6 @@
       shell = pkgs.fish;
       packages = with pkgs; [
         ncdu
-        neovim
       ];
     };
   };
