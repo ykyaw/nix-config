@@ -78,7 +78,6 @@
       packages = with pkgs; [
         ncdu
         neovim
-        vscode
       ];
     };
   };
