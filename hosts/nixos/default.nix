@@ -85,5 +85,18 @@
     };
   };
 
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.symbols-only
+      noto-fonts
+      noto-fonts-extra
+    ];
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "Comic Code Ligatures" ];
+    };
+  };
+
   system.stateVersion = "24.11";
 }
