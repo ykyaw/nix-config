@@ -23,6 +23,18 @@
         fi
       '';
     };
+    chromium = {
+      enable = true;
+      package = pkgs.brave;
+      extensions = [
+        "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
+        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden Password Manager
+        "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for YouTube - Skip Sponsorships
+        "kdbmhfkmnlmbkgbabkdealhhbfhlmmon" # SteamDB
+        "hipekcciheckooncpjeljhnekcoolahp" # Tabliss - A Beautiful New Tab
+        "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
+      ];
+    };
     ghostty = {
       enable = true;
       settings = {
