@@ -69,6 +69,8 @@
 
   hardware.nvidia.open = true;
 
+  programs.dconf.enable = true;
+
   users = {
     mutableUsers = false;
     users.thatoe = {
