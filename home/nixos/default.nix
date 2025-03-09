@@ -1,26 +1,22 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../shared
+  ];
+
   home = {
     username = "thatoe";
     homeDirectory = "/home/thatoe";
-    stateVersion = "24.11";
     packages = with pkgs; [
-      dbeaver-bin
       discord
-      gitkraken
       ncdu
-      nixd
-      nixfmt-rfc-style
-      nodejs_20
       qbittorrent
-      spotify
       teams-for-linux
     ];
   };
 
   programs = {
-    home-manager.enable = true;
     bash = {
       enable = true;
       initExtra = ''
@@ -31,18 +27,11 @@
         fi
       '';
     };
-    chromium = {
-      enable = true;
-      package = pkgs.brave;
-      extensions = [
-        "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
-        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden Password Manager
-        "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock for YouTube - Skip Sponsorships
-        "kdbmhfkmnlmbkgbabkdealhhbfhlmmon" # SteamDB
-        "hipekcciheckooncpjeljhnekcoolahp" # Tabliss - A Beautiful New Tab
-        "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
-      ];
-    };
+    chromium.extensions = [
+      "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
+      "kdbmhfkmnlmbkgbabkdealhhbfhlmmon" # SteamDB
+      "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
+    ];
     ghostty = {
       enable = true;
       settings = {
@@ -53,71 +42,15 @@
         theme = "tokyonight";
       };
     };
-    git = {
-      enable = true;
-      userEmail = "thatoe@pm.me";
-      userName = "Ye Thatoe Kyaw";
-      signing = {
-        signByDefault = true;
-        key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+    fish.shellAliases =
+      let
+        flake = "${config.home.homeDirectory}/development/nix-config";
+      in
+      {
+        ns = "sudo nixos-rebuild switch --flake ${flake}";
+        nu = "nix flake update --flake ${flake}";
       };
-      extraConfig = {
-        gpg.format = "ssh";
-        push.autoSetupRemote = true;
-        tag.forceSignAnnotated = true;
-      };
-    };
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        set fish_greeting
-        fish_vi_key_bindings
-      '';
-      shellAliases =
-        let
-          flake = "${config.home.homeDirectory}/development/nix-config";
-        in
-        {
-          ns = "sudo nixos-rebuild switch --flake ${flake}";
-          nu = "nix flake update --flake ${flake}";
-        };
-    };
-    fzf.enable = true;
     mpv.enable = true;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-    };
-    starship = {
-      enable = true;
-      settings.add_newline = false;
-    };
-    vscode = {
-      enable = true;
-      profiles.default = {
-        enableUpdateCheck = false;
-        userSettings = {
-          "editor.fontLigatures" = true;
-          "editor.formatOnPaste" = true;
-          "editor.formatOnSave" = true;
-          "editor.lineNumbers" = "relative";
-          "editor.rulers" = [ 80 ];
-          "editor.tabSize" = 2;
-          "extensions.ignoreRecommendations" = true;
-          "git.enableCommitSigning" = true;
-          "nix.enableLanguageServer" = true;
-          "nix.serverPath" = "nixd";
-          "telemetry.telemetryLevel" = "off";
-          "workbench.colorTheme" = "Tokyo Night";
-          "workbench.iconTheme" = "material-icon-theme";
-          "workbench.startupEditor" = "none";
-        };
-      };
-    };
-    zoxide.enable = true;
   };
 
   gtk = {

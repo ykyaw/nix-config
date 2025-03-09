@@ -41,6 +41,14 @@
       darwinConfigurations.macalania = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.thatoe = import ./home/darwin;
+            };
+          }
           ./hosts/darwin
         ];
       };
