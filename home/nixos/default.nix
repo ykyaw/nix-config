@@ -75,6 +75,13 @@
         };
     };
     fzf.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+    };
     starship = {
       enable = true;
       settings.add_newline = false;
@@ -82,22 +89,22 @@
     vscode = {
       enable = true;
       profiles.default = {
-      enableUpdateCheck = false;
-      userSettings = {
-        "editor.fontLigatures" = true;
-        "editor.formatOnPaste" = true;
-        "editor.formatOnSave" = true;
-        "editor.lineNumbers" = "relative";
-        "editor.rulers" = [ 80 ];
-        "editor.tabSize" = 2;
-        "extensions.ignoreRecommendations" = true;
-        "git.enableCommitSigning" = true;
-        "nix.enableLanguageServer" = true;
-        "nix.serverPath" = "nixd";
-        "telemetry.telemetryLevel" = "off";
-        "workbench.colorTheme" = "Tokyo Night";
-        "workbench.iconTheme" = "material-icon-theme";
-        "workbench.startupEditor" = "none";
+        enableUpdateCheck = false;
+        userSettings = {
+          "editor.fontLigatures" = true;
+          "editor.formatOnPaste" = true;
+          "editor.formatOnSave" = true;
+          "editor.lineNumbers" = "relative";
+          "editor.rulers" = [ 80 ];
+          "editor.tabSize" = 2;
+          "extensions.ignoreRecommendations" = true;
+          "git.enableCommitSigning" = true;
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nixd";
+          "telemetry.telemetryLevel" = "off";
+          "workbench.colorTheme" = "Tokyo Night";
+          "workbench.iconTheme" = "material-icon-theme";
+          "workbench.startupEditor" = "none";
         };
       };
     };

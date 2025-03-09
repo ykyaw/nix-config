@@ -77,7 +77,6 @@
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
         ncdu
-        neovim
       ];
     };
   };
