@@ -17,6 +17,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      "/etc/NetworkManager/system-connections"
+      "/var/log"
+      "/var/lib/nixos"
+      "/var/lib/systemd"
+      # TODO: home impermanence
+      { directory = "/home/thatoe"; user = "thatoe"; group = "users"; mode = "700"; }
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
+
   networking.hostName = "zanarkand"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
