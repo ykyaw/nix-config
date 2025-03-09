@@ -6,8 +6,16 @@
     homeDirectory = "/home/thatoe";
     stateVersion = "24.11";
     packages = with pkgs; [
+      dbeaver-bin
+      discord
+      gitkraken
+      ncdu
       nixd
       nixfmt-rfc-style
+      nodejs_20
+      qbittorrent
+      spotify
+      teams-for-linux
     ];
   };
 
@@ -75,6 +83,7 @@
         };
     };
     fzf.enable = true;
+    mpv.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;

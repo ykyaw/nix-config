@@ -69,7 +69,13 @@
 
   hardware.nvidia.open = true;
 
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
+  };
 
   users = {
     mutableUsers = false;
@@ -77,9 +83,6 @@
       isNormalUser = true;
       initialHashedPassword = "$y$j9T$Zf/t2ot4OWXkczm1vXNSq.$5u2yhmD5XKzoKmIxsX0QtDtT/LSVQS15jiIFWGUVMK7";
       extraGroups = [ "wheel" ];
-      packages = with pkgs; [
-        ncdu
-      ];
     };
   };
 
