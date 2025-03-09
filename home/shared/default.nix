@@ -4,13 +4,23 @@
   home = {
     stateVersion = "24.11";
     packages = with pkgs; [
+      azure-cli
       dbeaver-bin
+      ghostscript
       gitkraken
+      lens
       nixd
       nixfmt-rfc-style
       nodejs_20
+      pnpm
+      postgresql
+      postman
+      redis
       spotify
     ];
+    sessionVariables = {
+      CHROME_EXECUTABLE = "${pkgs.brave}/bin/brave";
+    };
   };
 
   programs = {
