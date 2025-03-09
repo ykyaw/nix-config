@@ -23,6 +23,16 @@
         fi
       '';
     };
+    ghostty = {
+      enable = true;
+      settings = {
+        background-opacity = 0.9;
+        background-blur-radius = 32;
+        font-family = "Comic Code Liguatures";
+        font-size = 11;
+        theme = "tokyonight";
+      };
+    };
     fish = {
       enable = true;
       interactiveShellInit = ''
