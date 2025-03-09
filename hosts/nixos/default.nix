@@ -5,7 +5,15 @@
     ./hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than-30d";
+    };
+    optimise.automatic = true;
+    settings.experimental-features = "nix-command flakes";
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   boot.loader = {
