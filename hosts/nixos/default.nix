@@ -3,18 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../shared
   ];
-
-  nix = {
-    gc = {
-      automatic = true;
-      options = "--delete-older-than-30d";
-    };
-    optimise.automatic = true;
-    settings.experimental-features = "nix-command flakes";
-  };
-
-  nixpkgs.config.allowUnfree = true;
 
   boot.loader = {
     systemd-boot.enable = true;

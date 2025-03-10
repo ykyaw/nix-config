@@ -13,7 +13,6 @@
       nixfmt-rfc-style
       nodejs_20
       pnpm
-      postgresql
       postman
       redis
       spotify
