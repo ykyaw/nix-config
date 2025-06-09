@@ -13,6 +13,17 @@
 
   programs = {
     home-manager.enable = true;
+    alacritty = {
+      enable = true;
+      settings = {
+        window = {
+          opacity = 0.9;
+          blur = true;
+        };
+        terminal.shell = "fish";
+      };
+      theme = "gruvbox_dark";
+    };
     fish = {
       enable = true;
       interactiveShellInit = ''
