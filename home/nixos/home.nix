@@ -59,6 +59,29 @@
       enable = true;
       settings.add_newline = false;
     };
+    vscode = {
+      enable = true;
+      profiles.default = {
+        enableUpdateCheck = false;
+        userSettings = {
+          "editor.formatOnPaste" = true;
+          "editor.formatOnSave" = true;
+          "editor.lineNumbers" = "relative";
+          "editor.rulers" = [ 80 ];
+          "editor.tabSize" = 2;
+          "extensions.ignoreRecommendations" = true;
+          "git.enableCommitSigning" = true;
+          "github.copilot.nextEditSuggestions.enabled" = true;
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nixd";
+          "telemetry.telemetryLevel" = "off";
+          "terminal.integrated.defaultProfile.linux" = "fish";
+          "workbench.colorTheme" = "Gruvbox Dark Hard";
+          "workbench.iconTheme" = "material-icon-theme";
+          "workbench.startupEditor" = "none";
+        };
+      };
+    };
     zoxide.enable = true;
   };
 }

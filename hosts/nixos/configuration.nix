@@ -84,7 +84,6 @@
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
         neovim
-        vscode
       ];
     };
   };
