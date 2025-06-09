@@ -12,4 +12,9 @@
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
     stateVersion = 6;
   };
+
+  users.users.thatoe = {
+    name = "thatoe";
+    home = "/Users/thatoe";
+  };
 }
