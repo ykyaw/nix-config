@@ -1,12 +1,11 @@
 { config, inputs, ... }:
 
 {
-  nix.settings.experimental-features = "nix-command flakes";
+  imports = [
+    ../shared/configuration.nix
+  ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-    hostPlatform = "aarch64-darwin";
-  };
+  nixpkgs.hostPlatform = "aarch64-darwin";
 
   system = {
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;

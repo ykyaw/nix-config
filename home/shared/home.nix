@@ -13,7 +13,6 @@
       nixfmt-rfc-style
       nodejs
       pnpm
-      postgresql
       spotify
       valkey
     ];
