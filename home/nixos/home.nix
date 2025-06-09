@@ -55,6 +55,13 @@
         tag.forceSignAnnotated = true;
       };
     };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+    };
     starship = {
       enable = true;
       settings.add_newline = false;
