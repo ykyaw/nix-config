@@ -40,6 +40,21 @@
         };
     };
     fzf.enable = true;
+    git = {
+      enable = true;
+      userEmail = "thatoe@pm.me";
+      userName = "Ye Thatoe Kyaw";
+      signing = {
+        format = "ssh";
+        key = "/home/thatoe/.ssh/id_ed25519.pub";
+        signByDefault = true;
+      };
+      extraConfig = {
+        gpg.ssh.allowedSignersFile = "/home/thatoe/.ssh/allowed_signers";
+        push.autoSetupRemote = true;
+        tag.forceSignAnnotated = true;
+      };
+    };
     starship = {
       enable = true;
       settings.add_newline = false;

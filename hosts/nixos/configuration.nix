@@ -83,7 +83,6 @@
       initialHashedPassword = "$y$j9T$gfPywz6CpSQo2e6pol9eA/$93.eDhru.iYKOFSdJK1N8oYq5st1nagp0c3X.pJR4bD";
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
-        git
         neovim
         vscode
       ];
