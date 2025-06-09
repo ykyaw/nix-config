@@ -4,13 +4,18 @@
   home = {
     stateVersion = "25.05";
     packages = with pkgs; [
+      azure-cli
       bruno
       dbeaver-bin
       gitkraken
+      lens
       nixd
       nixfmt-rfc-style
       nodejs
+      pnpm
+      postgresql
       spotify
+      valkey
     ];
   };
 
@@ -26,6 +31,10 @@
         terminal.shell = "fish";
       };
       theme = "gruvbox_dark";
+    };
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-devedition-bin;
     };
     fish = {
       enable = true;

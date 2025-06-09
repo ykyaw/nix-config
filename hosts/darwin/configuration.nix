@@ -19,6 +19,10 @@
     home = "/Users/thatoe";
   };
 
+  environment.variables = {
+    CHROME_EXECUTABLE = "chromium";
+  };
+
   homebrew = {
     enable = true;
     global.autoUpdate = false;
@@ -29,6 +33,7 @@
     casks = [
       "android-studio"
       "caffeine"
+      "chromium"
       "flutter"
       "intune-company-portal"
       "microsoft-excel"
