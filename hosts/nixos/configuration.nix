@@ -91,6 +91,10 @@
       enable = true;
       package = pkgs.firefox-devedition-bin;
     };
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
   };
 
   fonts = {

@@ -6,8 +6,17 @@
     homeDirectory = "/home/thatoe";
     stateVersion = "25.05";
     packages = with pkgs; [
+      bruno
+      dbeaver-bin
+      discord
+      gitkraken
+      ncdu
       nixd
       nixfmt-rfc-style
+      nodejs
+      qbittorrent
+      spotify
+      teams-for-linux
     ];
   };
 
@@ -24,6 +33,7 @@
       };
       theme = "gruvbox_dark";
     };
+    chromium.enable = true;
     fish = {
       enable = true;
       interactiveShellInit = ''
@@ -55,6 +65,7 @@
         tag.forceSignAnnotated = true;
       };
     };
+    mpv.enable = true;
     neovim = {
       enable = true;
       defaultEditor = true;
