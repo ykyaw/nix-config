@@ -9,6 +9,15 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +29,9 @@
       nixpkgs,
       impermanence,
       nix-darwin,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
       home-manager,
       ...
     }:
@@ -44,6 +56,18 @@
       darwinConfigurations.macalania = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              user = "thatoe";
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+              };
+              mutableTaps = false;
+            };
+          }
           home-manager.darwinModules.home-manager
           {
             home-manager = {
