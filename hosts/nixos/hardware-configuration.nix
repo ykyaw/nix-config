@@ -1,14 +1,21 @@
 {
-  config,
+  inputs,
   lib,
   modulesPath,
   ...
 }:
 
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+  imports =
+    with inputs.nixos-hardware.nixosModules;
+    [
+      common-pc
+      common-pc-ssd
+      common-cpu-amd
+      common-cpu-amd-pstate
+      common-gpu-amd
+    ]
+    ++ [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     initrd = {
@@ -72,5 +79,4 @@
   networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
