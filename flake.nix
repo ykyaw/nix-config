@@ -1,10 +1,14 @@
 {
-  description = "NixOS Configuration";
+  description = "NixOS and nix-darwin configurations";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +19,7 @@
     inputs@{
       nixpkgs,
       impermanence,
+      nix-darwin,
       home-manager,
       ...
     }:
@@ -33,6 +38,13 @@
             };
           }
           ./hosts/nixos/configuration.nix
+        ];
+      };
+
+      darwinConfigurations.macalania = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/darwin/configuration.nix
         ];
       };
     };
