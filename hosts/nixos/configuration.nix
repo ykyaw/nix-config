@@ -85,9 +85,12 @@
     };
   };
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition-bin;
+  programs = {
+    dconf.enable = true;
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-devedition-bin;
+    };
   };
 
   fonts = {
