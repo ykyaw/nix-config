@@ -31,10 +31,7 @@
       };
       theme = "gruvbox_dark";
     };
-    firefox = {
-      enable = true;
-      package = pkgs.firefox-devedition-bin;
-    };
+    firefox.enable = true;
     fish = {
       enable = true;
       interactiveShellInit = ''
