@@ -71,6 +71,7 @@
       profiles.default = {
         enableUpdateCheck = false;
         userSettings = {
+          "editor.fontFamily" = "Fira Code";
           "editor.formatOnPaste" = true;
           "editor.formatOnSave" = true;
           "editor.lineNumbers" = "relative";
