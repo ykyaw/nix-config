@@ -83,6 +83,7 @@
           "nix.serverPath" = "nixd";
           "telemetry.telemetryLevel" = "off";
           "terminal.integrated.defaultProfile.linux" = "fish";
+          "terminal.integrated.defaultProfile.osx" = "fish";
           "workbench.colorTheme" = "Gruvbox Dark Hard";
           "workbench.iconTheme" = "material-icon-theme";
           "workbench.startupEditor" = "none";
