@@ -16,6 +16,21 @@
     ];
   };
 
+  wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    config = {
+      modifier = "Mod4";
+      terminal = "alacritty";
+      output.DP-2.resolution = "3440x1440@120Hz";
+      input = {
+        "type:pointer".accel_profile = "flat";
+        "type:keyboard".xkb_numlock = "on";
+      };
+      defaultWorkspace = "workspace number 1";
+    };
+  };
+
   programs = {
     chromium.enable = true;
     fish = {
