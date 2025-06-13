@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -28,6 +28,9 @@
         "type:keyboard".xkb_numlock = "on";
       };
       defaultWorkspace = "workspace number 1";
+      keybindings = lib.mkOptionDefault {
+        "Mod1+Space" = "exec rofi -show drun";
+      };
     };
   };
 
@@ -44,6 +47,15 @@
         };
     };
     mpv.enable = true;
+    rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+    };
+  };
+
+  services = {
+    dunst.enable = true;
+    udiskie.enable = true;
   };
 
   gtk = {
