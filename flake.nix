@@ -44,10 +44,10 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.thatoe = import ./home.nix;
+                users.thatoe = import ./home/zanarkand.nix;
               };
             }
-            ./configuration.nix
+            ./hosts/zanarkand.nix
           ];
       };
     };
