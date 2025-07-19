@@ -63,17 +63,6 @@
       enable = true;
       pulse.enable = true;
     };
-    xserver = {
-      enable = true;
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          dmenu
-          i3status
-          i3lock
-        ];
-      };
-    };
   };
 
   users = {
@@ -84,6 +73,8 @@
       extraGroups = [ "wheel" ];
     };
   };
+
+  security.polkit.enable = true;
 
   programs = {
     dconf.enable = true;
