@@ -82,9 +82,6 @@
       isNormalUser = true;
       initialHashedPassword = "$y$j9T$2DqEl.piVsbd1h0QMpfFi0$bG06DaWBPUoJWadmH09GoXI546Z3xPTNXQuZfBh1ooC";
       extraGroups = [ "wheel" ];
-      packages = with pkgs; [
-        brave
-      ];
     };
   };
 
