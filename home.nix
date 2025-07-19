@@ -6,9 +6,20 @@
     homeDirectory = "/home/thatoe";
     stateVersion = "25.05";
     packages = with pkgs; [
+      android-studio
+      bruno
+      claude-code
+      dbeaver-bin
+      lazydocker
+      lazygit
+      ncdu
       nixd
       nixfmt-rfc-style
+      qbittorrent
       sbctl
+      spotify
+      teams-for-linux
+      yazi
     ];
   };
 
