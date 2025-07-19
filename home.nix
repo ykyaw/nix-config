@@ -31,6 +31,16 @@
         };
     };
     fzf.enable = true;
+    ghostty = {
+      enable = true;
+      settings = {
+        font-family = "Fira Code";
+        theme = "GruvboxDarkHard";
+        background-opacity = 0.9;
+        background-blur = true;
+        command = "${pkgs.fish}/bin/fish";
+      };
+    };
     starship = {
       enable = true;
       settings.add_newline = false;
