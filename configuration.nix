@@ -86,6 +86,11 @@
     };
   };
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   fonts = {
     packages = with pkgs; [
       dejavu_fonts
