@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence.url = "github:nix-community/impermanence";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,6 +19,7 @@
     {
       nixpkgs,
       nixos-hardware,
+      lanzaboote,
       impermanence,
       home-manager,
       ...
@@ -32,6 +37,7 @@
             common-gpu-amd
           ]
           ++ [
+            lanzaboote.nixosModules.lanzaboote
             impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
             {

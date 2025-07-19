@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -7,8 +12,12 @@
   nixpkgs.config.allowUnfree = true;
 
   boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot.enable = lib.mkForce false;
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
@@ -17,6 +26,7 @@
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
+      config.boot.lanzaboote.pkiBundle
       "/etc/NetworkManager/system-connections"
       "/var/log"
       "/var/lib/nixos"
