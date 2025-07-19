@@ -76,7 +76,13 @@
     };
   };
 
-  security.polkit.enable = true;
+  security = {
+    polkit.enable = true;
+    sudo.configFile = ''
+      Defaults insults
+      Defaults lecture=never
+    '';
+  };
 
   programs = {
     dconf.enable = true;
