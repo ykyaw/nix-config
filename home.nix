@@ -41,6 +41,17 @@
         command = "${pkgs.fish}/bin/fish";
       };
     };
+    git = {
+      enable = true;
+      userEmail = "thatoe@pm.me";
+      userName = "Ye Thatoe Kyaw";
+      signing = {
+        format = "ssh";
+        key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        signByDefault = true;
+      };
+      extraConfig.push.autoSetupRemote = true;
+    };
     starship = {
       enable = true;
       settings.add_newline = false;
