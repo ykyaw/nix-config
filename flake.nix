@@ -10,19 +10,28 @@
     };
   };
 
-  outputs = { self, nixpkgs, impermanence, home-manager }: {
-    nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
-      modules = [
-        impermanence.nixosModules.impermanence
-        home-manager.nixosModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.thatoe = import ./home.nix;
-          };
-        }
-        ./configuration.nix
-      ];
+  outputs =
+    {
+      nixpkgs,
+      impermanence,
+      home-manager,
+      ...
+    }:
+
+    {
+      nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
+        modules = [
+          impermanence.nixosModules.impermanence
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.thatoe = import ./home.nix;
+            };
+          }
+          ./configuration.nix
+        ];
+      };
     };
-  };
 }
