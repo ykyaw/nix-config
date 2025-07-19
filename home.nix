@@ -161,6 +161,16 @@
       vimAlias = true;
       vimdiffAlias = true;
     };
+    rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      font = "Fira Code 12";
+      theme = "gruvbox-dark-hard";
+      extraConfig = {
+        show-icons = true;
+        icon-theme = config.gtk.iconTheme.name;
+      };
+    };
     starship = {
       enable = true;
       settings.add_newline = false;
@@ -229,6 +239,11 @@
       };
     };
     zoxide.enable = true;
+  };
+
+  services = {
+    dunst.enable = true;
+    udiskie.enable = true;
   };
 
   gtk = {
