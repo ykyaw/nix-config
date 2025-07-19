@@ -43,6 +43,7 @@
     { device = "/dev/disk/by-label/NIXOS";
       fsType = "btrfs";
       options = [ "subvol=persist" "noatime" "compress=zstd:1" ];
+      neededForBoot = true;
     };
 
   swapDevices = [ ];
