@@ -52,6 +52,7 @@
   time.timeZone = "Asia/Singapore";
 
   services = {
+    gnome.gnome-keyring.enable = true;
     openssh = {
       enable = true;
       settings = {

@@ -24,6 +24,7 @@
       sbctl
       spotify
       teams-for-linux
+      xdg-utils
       yazi
     ];
   };
