@@ -6,18 +6,11 @@
 }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
-
-  nix = {
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 30d";
-    };
-    optimise.automatic = true;
-    settings.experimental-features = "nix-command flakes";
-  };
-
-  nixpkgs.config.allowUnfree = true;
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/fonts.nix
+    ../../modules/nix.nix
+  ];
 
   boot = {
     lanzaboote = {
@@ -97,21 +90,11 @@
     setSocketVariable = true;
   };
 
-  fonts = {
-    packages = with pkgs; [
-      dejavu_fonts
-      fira-code
-      inter
-      liberation_ttf
-      noto-fonts
-      noto-fonts-extra
-    ];
-    fontconfig.defaultFonts = {
-      serif = [ "Noto Serif" ];
-      sansSerif = [ "Noto Sans" ];
-      monospace = [ "Fira Code" ];
-      emoji = [ "Noto Color Emoji" ];
-    };
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Noto Serif" ];
+    sansSerif = [ "Noto Sans" ];
+    monospace = [ "Fira Code" ];
+    emoji = [ "Noto Color Emoji" ];
   };
 
   system.stateVersion = "25.05";

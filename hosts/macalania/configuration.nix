@@ -1,7 +1,11 @@
 { self, ... }:
 
 {
-  nix.settings.experimental-features = "nix-command flakes";
+  imports = [
+    ../../modules/fonts.nix
+    ../../modules/nix.nix
+  ];
+
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   system = {
