@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ../../modules/fonts.nix
     ../../modules/nix.nix
+    ../../modules/services.nix
   ];
 
   boot = {

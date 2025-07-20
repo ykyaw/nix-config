@@ -14,13 +14,18 @@
       dbeaver-bin
       lazydocker
       lazygit
+      melos
       ncdu
       nixd
       nixfmt-rfc-style
+      nodejs
       qbittorrent
       spotify
       yazi
     ];
+    sessionVariables = {
+      CHROME_EXECUTABLE = "${pkgs.brave}/bin/brave";
+    };
   };
 
   programs.home-manager.enable = true;
@@ -63,10 +68,7 @@
         background-blur = true;
         # TODO: switch to zsh as default shell on linux so that these commands are consistent
         command =
-          if pkgs.stdenv.isLinux then
-            "${pkgs.fish}/bin/fish --interactive"
-          else
-            "${pkgs.zsh}/bin/zsh --login -c 'fish --interactive'";
+          if pkgs.stdenv.isLinux then "${pkgs.fish}/bin/fish -i" else "${pkgs.zsh}/bin/zsh -i -c 'fish -i'";
       };
     };
     git = {

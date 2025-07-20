@@ -4,6 +4,7 @@
   imports = [
     ../../modules/fonts.nix
     ../../modules/nix.nix
+    ../../modules/services.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -18,8 +19,22 @@
 
   homebrew = {
     enable = true;
-    brews = [ ];
-    casks = [ ];
+    casks = [
+      "android-studio"
+      # TODO: install bruno from nixpkgs once darwin build is fixed
+      "bruno"
+      "caffeine"
+      {
+        name = "flutter";
+        greedy = false;
+      }
+      "intune-company-portal"
+      "microsoft-excel"
+      "microsoft-outlook"
+      "microsoft-teams"
+      "microsoft-word"
+      "orbstack"
+    ];
     masApps = {
       Xcode = 497799835;
     };
