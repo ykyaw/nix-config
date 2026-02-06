@@ -1,4 +1,10 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 
 {
   home = {
@@ -24,6 +30,14 @@
         };
     };
     fzf.enable = true;
+    ghostty = {
+      enable = true;
+      settings = {
+        command = "${lib.getExe pkgs.fish} --login --interactive";
+        font-family = builtins.elemAt osConfig.fonts.fontconfig.defaultFonts.monospace 0;
+        theme = "Catppuccin Mocha";
+      };
+    };
     home-manager.enable = true;
     starship = {
       enable = true;
