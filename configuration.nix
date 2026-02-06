@@ -62,7 +62,13 @@
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
+    };
     pipewire = {
       enable = true;
       pulse.enable = true;
