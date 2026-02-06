@@ -23,6 +23,12 @@
           nu = "nix flake update --flake ${flake}";
         };
     };
+    fzf.enable = true;
     home-manager.enable = true;
+    starship = {
+      enable = true;
+      settings.add_newline = false;
+    };
+    zoxide.enable = true;
   };
 }
