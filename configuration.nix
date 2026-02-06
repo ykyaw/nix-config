@@ -103,7 +103,6 @@
       packages = with pkgs; [
         brave
         neovim
-        vscode
       ];
     };
   };
