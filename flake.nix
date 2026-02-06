@@ -32,19 +32,25 @@
 
     let
       system = "x86_64-linux";
+      vars = import ./vars.nix;
       pkgs = nixpkgs.legacyPackages.${system};
+
+      mkHost =
+        hostPath:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs vars; };
+          modules = [
+            lanzaboote.nixosModules.lanzaboote
+            impermanence.nixosModules.impermanence
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = { inherit vars; }; }
+            hostPath
+          ];
+        };
     in
     {
-      nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          lanzaboote.nixosModules.lanzaboote
-          impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager
-          ./configuration.nix
-        ];
-      };
+      nixosConfigurations.zanarkand = mkHost ./hosts/zanarkand;
 
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
