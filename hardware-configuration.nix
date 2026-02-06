@@ -27,6 +27,7 @@
       ];
       kernelModules = [ ];
       luks.devices.root.device = "/dev/disk/by-label/CRYPTROOT";
+      systemd.enable = true;
     };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
