@@ -116,6 +116,11 @@
     };
   };
 
+  security.sudo.configFile = ''
+    Defaults insults
+    Defaults lecture=never
+  '';
+
   system.stateVersion = "25.11";
 
   home-manager = {
