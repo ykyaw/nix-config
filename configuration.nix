@@ -75,7 +75,13 @@
     };
   };
 
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
+  };
 
   fonts = {
     packages = with pkgs; [
