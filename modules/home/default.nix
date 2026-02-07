@@ -12,6 +12,7 @@
         ./gnome.nix
         ./neovim.nix
         ./shell.nix
+        ./sops.nix
         ./vscode.nix
       ];
 

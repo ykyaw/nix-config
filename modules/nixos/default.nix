@@ -7,6 +7,8 @@
     ./gnome.nix
     ./impermanence.nix
     ./nix.nix
+    ./sops.nix
+    ./ssh.nix
     ./users.nix
   ];
 }

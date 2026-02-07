@@ -1,4 +1,4 @@
-{ vars, ... }:
+{ config, vars, ... }:
 
 {
   users = {
@@ -6,7 +6,7 @@
     users.${vars.username} = {
       description = vars.fullName;
       isNormalUser = true;
-      initialHashedPassword = "$y$j9T$3UjVg6hThDHLRSGmLaClK1$IXMQenpZ1gauv4gJLRJOyHz.u466VhVfIFyBONYnhe5";
+      hashedPasswordFile = config.sops.secrets.user_password.path;
       extraGroups = [ "wheel" ];
     };
   };

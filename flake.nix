@@ -19,6 +19,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -27,6 +31,7 @@
       lanzaboote,
       impermanence,
       home-manager,
+      sops-nix,
       ...
     }@inputs:
 
@@ -44,7 +49,13 @@
             lanzaboote.nixosModules.lanzaboote
             impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
-            { home-manager.extraSpecialArgs = { inherit vars; }; }
+            {
+              home-manager = {
+                extraSpecialArgs = { inherit vars; };
+                sharedModules = [ sops-nix.homeManagerModules.sops ];
+              };
+            }
+            sops-nix.nixosModules.sops
             hostPath
           ];
         };
@@ -56,6 +67,7 @@
         packages = with pkgs; [
           nixd
           nixfmt
+          sops
         ];
       };
     };
