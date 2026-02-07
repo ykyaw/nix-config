@@ -1,6 +1,7 @@
 {
   imports = [
     ./boot.nix
+    ./btrbk.nix
     ./devenv.nix
     ./fonts.nix
     ./gnome.nix
