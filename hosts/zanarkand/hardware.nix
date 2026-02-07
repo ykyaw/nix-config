@@ -1,4 +1,9 @@
-{ inputs, modulesPath, ... }:
+{
+  inputs,
+  modulesPath,
+  vars,
+  ...
+}:
 
 {
   imports =
@@ -26,7 +31,10 @@
         "sd_mod"
       ];
       kernelModules = [ ];
-      luks.devices.root.device = "/dev/disk/by-label/CRYPTROOT";
+      luks.devices = {
+        root.device = "/dev/disk/by-label/CRYPTROOT";
+        data.device = "/dev/disk/by-label/CRYPTDATA";
+      };
       systemd.enable = true;
     };
     kernelModules = [ "kvm-amd" ];
@@ -74,7 +82,19 @@
         "compress=zstd"
       ];
     };
+    "/data" = {
+      device = "/dev/disk/by-label/DATA";
+      fsType = "btrfs";
+      options = [
+        "subvol=data"
+        "noatime"
+        "nofail"
+        "compress=zstd"
+      ];
+    };
   };
+
+  systemd.tmpfiles.rules = [ "d /data 0700 ${vars.username} users -" ];
 
   swapDevices = [ ];
 }
