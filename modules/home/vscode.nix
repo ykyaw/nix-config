@@ -8,6 +8,7 @@
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions; [
+        anthropic.claude-code
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         dart-code.dart-code
@@ -41,6 +42,7 @@
         };
       };
       userSettings = {
+        "claudeCode.preferredLocation" = "panel";
         "editor.fontFamily" = vars.defaultMonoFont;
         "editor.formatOnPaste" = true;
         "editor.formatOnSave" = true;
