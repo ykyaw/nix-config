@@ -22,6 +22,7 @@
         homeDirectory = "/home/${vars.username}";
         packages = with pkgs; [
           bruno
+          claude-code
           dbeaver-bin
           discord
           lazygit
