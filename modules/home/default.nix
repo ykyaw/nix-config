@@ -26,6 +26,8 @@
           dbeaver-bin
           discord
           lazygit
+          libreoffice-fresh
+          ncdu
           qbittorrent
           spotify
           teams-for-linux
