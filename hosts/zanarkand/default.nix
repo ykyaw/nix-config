@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./hardware.nix
@@ -27,13 +25,6 @@
     pipewire = {
       enable = true;
       pulse.enable = true;
-    };
-  };
-
-  programs = {
-    steam = {
-      enable = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
   };
 

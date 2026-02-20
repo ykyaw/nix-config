@@ -4,6 +4,7 @@
     ./btrbk.nix
     ./devenv.nix
     ./fonts.nix
+    ./gaming.nix
     ./gnome.nix
     ./impermanence.nix
     ./nix.nix
