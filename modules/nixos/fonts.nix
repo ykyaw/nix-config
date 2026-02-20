@@ -1,4 +1,4 @@
-{ pkgs, vars, ... }:
+{ constants, pkgs, ... }:
 
 {
   fonts = {
@@ -13,7 +13,7 @@
     fontconfig.defaultFonts = {
       serif = [ "Noto Serif" ];
       sansSerif = [ "Noto Sans" ];
-      monospace = [ vars.defaultMonoFont ];
+      monospace = [ constants.monospace ];
       emoji = [ "Noto Color Emoji" ];
     };
   };

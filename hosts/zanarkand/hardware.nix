@@ -1,7 +1,7 @@
 {
+  constants,
   inputs,
   modulesPath,
-  vars,
   ...
 }:
 
@@ -94,7 +94,7 @@
     };
   };
 
-  systemd.tmpfiles.rules = [ "d /data 0700 ${vars.username} users -" ];
+  systemd.tmpfiles.rules = [ "d /data 0700 ${constants.username} users -" ];
 
   swapDevices = [ ];
 

@@ -1,12 +1,12 @@
-{ vars, ... }:
+{ constants, ... }:
 
 {
   programs.git = {
     enable = true;
     settings = {
       user = {
-        name = vars.fullName;
-        email = vars.email;
+        name = constants.fullName;
+        email = constants.email;
       };
       push.autoSetupRemote = true;
     };

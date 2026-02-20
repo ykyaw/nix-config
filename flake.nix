@@ -32,19 +32,19 @@
 
     let
       system = "x86_64-linux";
-      vars = import ./vars.nix;
+      constants = import ./lib/constants.nix;
       pkgs = nixpkgs.legacyPackages.${system};
 
       mkHost =
         hostPath:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs vars; };
+          specialArgs = { inherit inputs constants; };
           modules = [
             lanzaboote.nixosModules.lanzaboote
             impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
-            { home-manager.extraSpecialArgs = { inherit vars; }; }
+            { home-manager.extraSpecialArgs = { inherit constants; }; }
             hostPath
           ];
         };

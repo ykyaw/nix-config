@@ -1,7 +1,7 @@
 {
+  constants,
   lib,
   pkgs,
-  vars,
   ...
 }:
 
@@ -10,7 +10,7 @@
     enable = true;
     settings = {
       command = "${lib.getExe pkgs.fish} --login --interactive";
-      font-family = vars.defaultMonoFont;
+      font-family = constants.monospace;
       theme = "Catppuccin Mocha";
     };
   };

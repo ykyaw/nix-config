@@ -1,4 +1,4 @@
-{ pkgs, vars, ... }:
+{ constants, pkgs, ... }:
 
 {
   programs.vscode = {
@@ -43,7 +43,7 @@
       };
       userSettings = {
         "claudeCode.preferredLocation" = "panel";
-        "editor.fontFamily" = vars.defaultMonoFont;
+        "editor.fontFamily" = constants.monospace;
         "editor.formatOnPaste" = true;
         "editor.formatOnSave" = true;
         "editor.minimap.enabled" = false;

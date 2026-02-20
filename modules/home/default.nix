@@ -1,10 +1,10 @@
-{ pkgs, vars, ... }:
+{ constants, pkgs, ... }:
 
 {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${vars.username} = {
+    users.${constants.username} = {
       imports = [
         ./brave.nix
         ./ghostty.nix
@@ -18,8 +18,8 @@
       programs.home-manager.enable = true;
 
       home = {
-        username = vars.username;
-        homeDirectory = "/home/${vars.username}";
+        username = constants.username;
+        homeDirectory = "/home/${constants.username}";
         packages = with pkgs; [
           bruno
           claude-code
