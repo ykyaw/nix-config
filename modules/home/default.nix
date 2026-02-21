@@ -11,6 +11,7 @@
         ./ghostty.nix
         ./git.nix
         ./neovim.nix
+        ./noctalia.nix
         ./shell.nix
         ./vscode.nix
       ];

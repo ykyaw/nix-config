@@ -19,6 +19,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -44,7 +48,7 @@
             lanzaboote.nixosModules.lanzaboote
             impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
-            { home-manager.extraSpecialArgs = { inherit constants; }; }
+            { home-manager.extraSpecialArgs = { inherit inputs constants; }; }
             hostPath
           ];
         };
