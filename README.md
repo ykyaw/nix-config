@@ -6,7 +6,8 @@ NixOS configuration with flakes, home-manager, impermanence, and secure boot.
 
 ```
 ├── hosts
-│   └── zanarkand         # Desktop
+│   ├── zanarkand         # Desktop
+│   └── moonflow          # Laptop
 ├── lib
 │   └── constants.nix     # Constant variables
 └── modules

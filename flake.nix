@@ -54,7 +54,10 @@
         };
     in
     {
-      nixosConfigurations.zanarkand = mkHost ./hosts/zanarkand;
+      nixosConfigurations = {
+        zanarkand = mkHost ./hosts/zanarkand;
+        moonflow = mkHost ./hosts/moonflow;
+      };
 
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
