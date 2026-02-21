@@ -59,7 +59,7 @@
         pinnedApps = [
           "org.gnome.Nautilus"
           "brave-browser"
-          "com.mitchellh.ghostty"
+          "kitty"
           "code"
           "dbeaver"
           "bruno"
@@ -68,7 +68,7 @@
           "spotify"
           "steam"
         ];
-        terminalCommand = "ghostty -e";
+        terminalCommand = "kitty -e";
         iconMode = "native";
       };
       controlCenter.diskPath = "/nix";

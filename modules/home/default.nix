@@ -8,7 +8,7 @@
       imports = [
         ./brave.nix
         ./direnv.nix
-        ./ghostty.nix
+        ./kitty.nix
         ./git.nix
         ./neovim.nix
         ./noctalia.nix
