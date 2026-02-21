@@ -7,9 +7,9 @@
     users.${constants.username} = {
       imports = [
         ./brave.nix
+        ./direnv.nix
         ./ghostty.nix
         ./git.nix
-        ./gnome.nix
         ./neovim.nix
         ./shell.nix
         ./vscode.nix
@@ -27,6 +27,7 @@
           discord
           lazygit
           libreoffice-fresh
+          nautilus
           ncdu
           qbittorrent
           spotify

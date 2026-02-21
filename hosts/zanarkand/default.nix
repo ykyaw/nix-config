@@ -15,6 +15,8 @@
   time.timeZone = "Asia/Singapore";
 
   services = {
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
     openssh = {
       enable = true;
       settings = {
@@ -26,6 +28,15 @@
       enable = true;
       pulse.enable = true;
     };
+  };
+
+  programs.dconf = {
+    enable = true;
+    profiles.user.databases = [
+      {
+        settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      }
+    ];
   };
 
   virtualisation.docker.rootless = {

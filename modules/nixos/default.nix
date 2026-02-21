@@ -5,8 +5,8 @@
     ./devenv.nix
     ./fonts.nix
     ./gaming.nix
-    ./gnome.nix
     ./impermanence.nix
+    ./niri.nix
     ./nix.nix
     ./users.nix
   ];
