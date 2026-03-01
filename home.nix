@@ -14,6 +14,7 @@
     packages = with pkgs; [
       bruno
       btop
+      claude-code
       dbeaver-bin
       discord
       lazydocker
@@ -97,6 +98,7 @@
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
         extensions = with pkgs.vscode-extensions; [
+          anthropic.claude-code
           catppuccin.catppuccin-vsc
           catppuccin.catppuccin-vsc-icons
           dart-code.dart-code
@@ -131,6 +133,7 @@
         };
         userSettings = {
           "chat.disableAIFeatures" = false;
+          "claudeCode.preferredLocation" = "panel";
           "editor.fontFamily" = builtins.elemAt osConfig.fonts.fontconfig.defaultFonts.monospace 0;
           "editor.formatOnPaste" = true;
           "editor.formatOnSave" = true;

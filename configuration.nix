@@ -24,10 +24,12 @@
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
+      "claude-code"
       "discord"
       "spotify"
       "steam"
       "steam-unwrapped"
+      "vscode-extension-anthropic-claude-code"
       "vscode-extension-github-copilot"
     ];
 
