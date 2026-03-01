@@ -99,7 +99,6 @@
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
         brave
-        git
         neovim
         vscodium
       ];
