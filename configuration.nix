@@ -102,7 +102,6 @@
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
         brave
-        neovim
       ];
     };
   };
