@@ -20,6 +20,9 @@
     ];
   };
 
+  nixpkgs.config.allowUnfreePredicate =
+    pkg: builtins.elem (lib.getName pkg) [ "vscode-extension-github-copilot" ];
+
   boot = {
     lanzaboote = {
       enable = true;
@@ -100,7 +103,6 @@
       packages = with pkgs; [
         brave
         neovim
-        vscodium
       ];
     };
   };
