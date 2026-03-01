@@ -11,6 +11,20 @@
     username = "thatoe";
     homeDirectory = "/home/thatoe";
     stateVersion = "25.11";
+    packages = with pkgs; [
+      bruno
+      btop
+      dbeaver-bin
+      discord
+      lazydocker
+      lazygit
+      ncdu
+      qbittorrent
+      spotify
+      teams-for-linux
+      xclicker
+      yazi
+    ];
   };
 
   programs = {

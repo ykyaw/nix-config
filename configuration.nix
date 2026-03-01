@@ -20,8 +20,16 @@
     ];
   };
 
+  # Keeping track of unfree packages to hopefully find free alternatives.
   nixpkgs.config.allowUnfreePredicate =
-    pkg: builtins.elem (lib.getName pkg) [ "vscode-extension-github-copilot" ];
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "discord"
+      "spotify"
+      "steam"
+      "steam-unwrapped"
+      "vscode-extension-github-copilot"
+    ];
 
   boot = {
     lanzaboote = {
@@ -75,7 +83,13 @@
     };
   };
 
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
+  };
 
   fonts = {
     packages = with pkgs; [
