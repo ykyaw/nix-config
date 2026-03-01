@@ -83,6 +83,25 @@
     };
   };
 
+  environment = {
+    gnome.excludePackages = with pkgs; [
+      decibels
+      epiphany
+      gnome-console
+      gnome-contacts
+      gnome-maps
+      gnome-music
+      gnome-tour
+      showtime
+      snapshot
+    ];
+    systemPackages = with pkgs.gnomeExtensions; [
+      appindicator
+      blur-my-shell
+      hot-edge
+    ];
+  };
+
   programs = {
     dconf.enable = true;
     steam = {
