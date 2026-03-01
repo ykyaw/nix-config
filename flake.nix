@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     impermanence = {
       url = "github:nix-community/impermanence";
       inputs = {
@@ -22,7 +23,7 @@
       impermanence,
       home-manager,
       ...
-    }:
+    }@inputs:
 
     let
       system = "x86_64-linux";
@@ -30,6 +31,8 @@
     in
     {
       nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
         modules = [
           impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager
