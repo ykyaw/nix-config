@@ -7,6 +7,8 @@
         extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
 
+      hardware.xone.enable = true;
+
       environment.systemPackages = [ pkgs.xclicker ];
     };
 }
