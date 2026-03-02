@@ -1,6 +1,7 @@
+{ config, ... }:
 {
   flake.modules.homeManager.editors =
-    { osConfig, pkgs, ... }:
+    { pkgs, ... }:
     {
       programs.vscode = {
         enable = true;
@@ -46,7 +47,7 @@
           userSettings = {
             "chat.disableAIFeatures" = false;
             "claudeCode.preferredLocation" = "panel";
-            "editor.fontFamily" = builtins.elemAt osConfig.fonts.fontconfig.defaultFonts.monospace 0;
+            "editor.fontFamily" = config.monospace;
             "editor.formatOnPaste" = true;
             "editor.formatOnSave" = true;
             "editor.minimap.enabled" = false;

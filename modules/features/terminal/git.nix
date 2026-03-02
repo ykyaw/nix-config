@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  name = config.fullName;
+in
 {
   flake.modules.homeManager.terminal =
     { config, ... }:
@@ -7,7 +11,7 @@
         settings = {
           user = {
             email = "thatoe@pm.me";
-            name = "Ye Thatoe Kyaw";
+            inherit name;
           };
           push.autoSetupRemote = true;
         };

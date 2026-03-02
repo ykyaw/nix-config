@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   flake.modules = {
     nixos.gnome =
@@ -24,8 +25,8 @@
 
         system.activationScripts.text = ''
           mkdir -p /var/lib/AccountsService/{icons,users}
-          cp ${pkgs.gnome-control-center}/share/pixmaps/faces/coffee2.jpg /var/lib/AccountsService/icons/thatoe
-          echo -e "[User]\nIcon=/var/lib/AccountsService/icons/thatoe" > /var/lib/AccountsService/users/thatoe
+          cp ${pkgs.gnome-control-center}/share/pixmaps/faces/coffee2.jpg /var/lib/AccountsService/icons/${config.username}
+          echo -e "[User]\nIcon=/var/lib/AccountsService/icons/${config.username}" > /var/lib/AccountsService/users/${config.username}
         '';
       };
 

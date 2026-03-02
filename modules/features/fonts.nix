@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   flake.modules.nixos.fonts =
     { pkgs, ... }:
@@ -14,7 +15,7 @@
         fontconfig.defaultFonts = {
           serif = [ "Noto Serif" ];
           sansSerif = [ "Noto Sans" ];
-          monospace = [ "Berkeley Mono" ];
+          monospace = [ config.monospace ];
           emoji = [ "Noto Color Emoji" ];
         };
       };

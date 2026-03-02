@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   flake.modules.nixos.zanarkand = {
     fileSystems = {
@@ -54,7 +55,7 @@
       };
     };
 
-    systemd.tmpfiles.rules = [ "d /data 0700 thatoe users -" ];
+    systemd.tmpfiles.rules = [ "d /data 0700 ${config.username} users -" ];
 
     swapDevices = [ ];
 
