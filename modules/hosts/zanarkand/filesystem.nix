@@ -57,5 +57,7 @@
     systemd.tmpfiles.rules = [ "d /data 0700 thatoe users -" ];
 
     swapDevices = [ ];
+
+    zramSwap.enable = true;
   };
 }
