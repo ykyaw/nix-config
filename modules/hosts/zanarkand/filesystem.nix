@@ -42,7 +42,19 @@
         ];
         neededForBoot = true;
       };
+      "/data" = {
+        device = "/dev/disk/by-label/DATA";
+        fsType = "btrfs";
+        options = [
+          "subvol=data"
+          "noatime"
+          "compress=zstd"
+          "nofail"
+        ];
+      };
     };
+
+    systemd.tmpfiles.rules = [ "d /data 0700 thatoe users -" ];
 
     swapDevices = [ ];
   };

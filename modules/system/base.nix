@@ -5,6 +5,7 @@
       lanzaboote
       impermanence
       home-manager
+      btrbk
       sudo
       audio
       networking

@@ -26,7 +26,10 @@
             "sd_mod"
           ];
           kernelModules = [ ];
-          luks.devices.root.device = "/dev/disk/by-label/CRYPTROOT";
+          luks.devices = {
+            root.device = "/dev/disk/by-label/CRYPTROOT";
+            data.device = "/dev/disk/by-label/CRYPTDATA";
+          };
           systemd.enable = true;
         };
         kernelModules = [ "kvm-amd" ];
