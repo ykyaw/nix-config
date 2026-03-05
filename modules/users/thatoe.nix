@@ -1,30 +1,38 @@
 { config, inputs, ... }:
+let
+  username = config.username;
+  fullName = config.fullName;
+in
 {
   flake.modules = {
-    nixos."${config.username}" = {
-      users.users."${config.username}" = {
-        description = config.fullName;
-        isNormalUser = true;
-        initialHashedPassword = "$y$j9T$lDwpaQZ/o0gUWs7it7bAM.$BxG4FDm/4aGnHYldH.M.0WopE4yaVDvi3W.wE2uVDQ7";
-        extraGroups = [ "wheel" ];
+    nixos."${username}" =
+      { config, ... }:
+      {
+        users.users."${username}" = {
+          description = fullName;
+          isNormalUser = true;
+          hashedPasswordFile = config.sops.secrets.password.path;
+          extraGroups = [ "wheel" ];
+        };
+
+        sops.secrets.password.neededForUsers = true;
+
+        home-manager.users."${username}".imports = with inputs.self.modules.homeManager; [
+          base
+          gnome
+          theming
+          browsers
+          terminal
+          development
+          editors
+          media
+          apps
+        ];
       };
 
-      home-manager.users."${config.username}".imports = with inputs.self.modules.homeManager; [
-        base
-        gnome
-        theming
-        browsers
-        terminal
-        development
-        editors
-        media
-        apps
-      ];
-    };
-
-    homeManager."${config.username}".home = {
-      username = config.username;
-      homeDirectory = "/home/${config.username}";
+    homeManager."${username}".home = {
+      inherit username;
+      homeDirectory = "/home/${username}";
     };
   };
 }
