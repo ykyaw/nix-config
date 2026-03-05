@@ -17,6 +17,7 @@
         terminal
         development
         editors
+        media
         apps
       ];
     };
