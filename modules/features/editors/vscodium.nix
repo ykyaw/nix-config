@@ -2,6 +2,17 @@
 {
   flake.modules.homeManager.editors =
     { pkgs, ... }:
+    let
+      # https://redirect.github.com/prettier/prettier-vscode/issues/3931
+      prettierPinned = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "prettier-vscode";
+          publisher = "esbenp";
+          version = "11.0.3";
+          hash = "sha256-qWbHLWZOA40XpNAZ2hovPo8IzsTYjMENI5NY/7qfupk=";
+        };
+      };
+    in
     {
       programs.vscode = {
         enable = true;
@@ -10,26 +21,27 @@
         profiles.default = {
           enableUpdateCheck = false;
           enableExtensionUpdateCheck = false;
-          extensions = with pkgs.vscode-extensions; [
-            anthropic.claude-code
-            catppuccin.catppuccin-vsc
-            catppuccin.catppuccin-vsc-icons
-            dart-code.dart-code
-            dart-code.flutter
-            dbaeumer.vscode-eslint
-            eamodio.gitlens
-            esbenp.prettier-vscode
-            firsttris.vscode-jest-runner
-            github.copilot
-            github.copilot-chat
-            graphql.vscode-graphql
-            graphql.vscode-graphql-syntax
-            jnoortheen.nix-ide
-            stkb.rewrap
-            streetsidesoftware.code-spell-checker
-            usernamehw.errorlens
-            vscodevim.vim
-          ];
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              anthropic.claude-code
+              catppuccin.catppuccin-vsc
+              catppuccin.catppuccin-vsc-icons
+              dart-code.dart-code
+              dart-code.flutter
+              dbaeumer.vscode-eslint
+              eamodio.gitlens
+              firsttris.vscode-jest-runner
+              github.copilot-chat
+              graphql.vscode-graphql
+              graphql.vscode-graphql-syntax
+              jnoortheen.nix-ide
+              stkb.rewrap
+              streetsidesoftware.code-spell-checker
+              usernamehw.errorlens
+              vscodevim.vim
+            ]
+            ++ [ prettierPinned ];
           languageSnippets = {
             dart = {
               fontLoader = {
