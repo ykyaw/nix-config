@@ -4,6 +4,7 @@
     imports = with inputs.self.modules.nixos; [
       lanzaboote
       impermanence
+      sops-nix
       home-manager
       btrbk
       sudo

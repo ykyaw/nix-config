@@ -1,0 +1,11 @@
+keys:
+  - &users
+    - &thatoe age1smvma3kje6rg2jsw8rwlcej6d5h4juvg0u4ctjdv7qjcrhlzcpfs2gkydt
+  - &hosts
+    - &zanarkand age1qqnavn4gs6h39hvejd4ntgakplz0vhn2svr0dcl9cm86xsz6uqfqt4anms
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *thatoe
+          - *zanarkand
