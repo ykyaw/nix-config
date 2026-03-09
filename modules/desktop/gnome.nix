@@ -65,7 +65,7 @@
           favorite-apps = [
             "org.gnome.Nautilus.desktop"
             "brave-browser.desktop"
-            "com.mitchellh.ghostty.desktop"
+            "kitty.desktop"
             "codium.desktop"
             "dbeaver.desktop"
             "bruno.desktop"
@@ -163,7 +163,7 @@
         };
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
           name = "yazi";
-          command = "ghostty -e yazi";
+          command = "kitty yazi";
           binding = "<Super>Y";
         };
       };
