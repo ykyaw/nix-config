@@ -34,6 +34,7 @@
     {
       home.packages = with pkgs.gnomeExtensions; [
         appindicator
+        bing-wallpaper-changer
         blur-my-shell
         hot-edge
       ];
@@ -49,11 +50,17 @@
         "org/gnome/desktop/screensaver".lock-enabled = false;
         "org/gnome/desktop/wm/preferences".resize-with-right-button = true;
         "org/gnome/GWeather4".temperature-unit = "centigrade";
+        "org/gnome/nautilus/list-view" = {
+          use-tree-view = true;
+          default-zoom-level = "small";
+        };
+        "org/gnome/nautilus/preferences".default-folder-viewer = "list-view";
         "org/gnome/shell" = {
           enabled-extensions = [
             "appindicatorsupport@rgcjonas.gmail.com"
             "blur-my-shell@aunetx"
             "hotedge@jonathan.jdoda.ca"
+            "BingWallpaper@ineffable-gmail.com"
           ];
           favorite-apps = [
             "org.gnome.Nautilus.desktop"
@@ -68,12 +75,17 @@
             "steam.desktop"
           ];
         };
+        "org/gnome/shell/extensions/bingwallpaper".hide = true;
         "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab".blur = false;
         "org/gnome/shell/extensions/blur-my-shell/dash-to-dock".blur = false;
         "org/gnome/shell/extensions/blur-my-shell/panel".blur = false;
         "org/gnome/shell/extensions/blur-my-shell/window-list".blur = false;
         "org/gnome/system/location".enabled = true;
-        "org/gtk/settings/file-chooser".clock-format = "12h";
+        "org/gtk/settings/file-chooser" = {
+          clock-format = "12h";
+          show-hidden = true;
+          sort-directories-first = true;
+        };
 
         ## Keybindings
         "org/gnome/desktop/wm/keybindings" = {
