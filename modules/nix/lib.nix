@@ -12,5 +12,11 @@
         modules = [ inputs.self.modules.nixos.${name} ];
       };
     };
+    mkDarwin = system: name: {
+      ${name} = inputs.nix-darwin.lib.darwinSystem {
+        inherit system;
+        modules = [ inputs.self.modules.darwin.${name} ];
+      };
+    };
   };
 }
