@@ -3,9 +3,11 @@ keys:
     - &thatoe age1smvma3kje6rg2jsw8rwlcej6d5h4juvg0u4ctjdv7qjcrhlzcpfs2gkydt
   - &hosts
     - &zanarkand age1qqnavn4gs6h39hvejd4ntgakplz0vhn2svr0dcl9cm86xsz6uqfqt4anms
+    - &moonflow age1haqfrgf9n37z2ku5ftxukg4u7g2qzfnun20q594jnv5kuqq6g43s6a4fq2
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
       - age:
           - *thatoe
           - *zanarkand
+          - *moonflow
