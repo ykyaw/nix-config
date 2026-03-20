@@ -66,7 +66,7 @@
             "org.gnome.Nautilus.desktop"
             "brave-browser.desktop"
             "kitty.desktop"
-            "codium.desktop"
+            "code.desktop"
             "dbeaver.desktop"
             "bruno.desktop"
             "teams-for-linux.desktop"
