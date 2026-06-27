@@ -1,4 +1,10 @@
-{ config, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   home = {
     username = "thatoe";
     homeDirectory = "/home/thatoe";
@@ -23,6 +29,16 @@
     };
     fzf.enable = true;
     home-manager.enable = true;
+    kitty = {
+      enable = true;
+      font.name = "Berkeley Mono";
+      settings = {
+        background_blur = 16;
+        background_opacity = 0.9;
+        shell = lib.getExe pkgs.fish;
+      };
+      themeFile = "Catppuccin-Mocha";
+    };
     starship = {
       enable = true;
       settings.add_newline = false;
