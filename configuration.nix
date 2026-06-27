@@ -97,6 +97,11 @@
     };
   };
 
+  security.sudo.configFile = ''
+    Defaults insults
+    Defaults lecture=never
+  '';
+
   programs = {
     dconf.enable = true;
     firefox.enable = true;
