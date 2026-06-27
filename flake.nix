@@ -11,6 +11,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence = {
       url = "github:nix-community/impermanence";
       inputs = {
@@ -23,6 +27,7 @@
   outputs =
     inputs@{
       nixpkgs,
+      lanzaboote,
       impermanence,
       home-manager,
       ...
@@ -36,6 +41,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
+          lanzaboote.nixosModules.lanzaboote
           impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager
           ./configuration.nix

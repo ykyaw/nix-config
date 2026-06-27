@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
 
   nix.settings.experimental-features = [
@@ -14,6 +14,7 @@
         mode = "0700";
       }
       "/var/lib/nixos"
+      "/var/lib/sbctl"
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"
       "/var/log"
@@ -21,9 +22,16 @@
     files = [ "/etc/machine-id" ];
   };
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+      autoGenerateKeys.enable = true;
+    };
+    loader = {
+      systemd-boot.enable = lib.mkForce false;
+      efi.canTouchEfiVariables = true;
+    };
   };
 
   networking = {
