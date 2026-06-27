@@ -1,4 +1,10 @@
-{ lib, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = [ ./hardware-configuration.nix ];
 
   nix = {
@@ -7,10 +13,16 @@
       options = "--delete-older-than 30d";
     };
     optimise.automatic = true;
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
+    };
   };
 
   # Keeping track of unfree packages to hopefully find free alternatives.
@@ -61,8 +73,12 @@
   i18n.defaultLocale = "en_GB.UTF-8";
 
   services = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager = {
+      ly = {
+        enable = true;
+        x11Support = false;
+      };
+    };
     pipewire = {
       enable = true;
       pulse.enable = true;
@@ -105,6 +121,7 @@
   programs = {
     dconf.enable = true;
     firefox.enable = true;
+    niri.enable = true;
     steam = {
       enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
@@ -116,6 +133,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
     users.thatoe = ./home.nix;
   };
 }

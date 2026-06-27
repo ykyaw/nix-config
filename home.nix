@@ -1,10 +1,13 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
 }:
 {
+  imports = [ inputs.noctalia.homeModules.default ];
+
   home = {
     username = "thatoe";
     homeDirectory = "/home/thatoe";
@@ -20,6 +23,7 @@
       spotify
       teams-for-linux
       xclicker
+      xwayland-satellite
       yazi
     ];
   };
@@ -74,6 +78,7 @@
       vimAlias = true;
       vimdiffAlias = true;
     };
+    noctalia-shell.enable = true;
     starship = {
       enable = true;
       settings.add_newline = false;
