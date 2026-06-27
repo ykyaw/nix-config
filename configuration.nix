@@ -69,6 +69,11 @@
     };
   };
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
