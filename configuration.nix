@@ -80,7 +80,6 @@
       initialHashedPassword = "$y$j9T$V4ACLsuBY7IPM1bvux.461$AvIIfkcqYm1PRi.ESSk.f61.gzxeIkBUZ7Uhurr7EgB";
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
-        git
         neovim
         vscodium
       ];
