@@ -82,7 +82,10 @@
     };
   };
 
-  programs.firefox.enable = true;
+  programs = {
+    dconf.enable = true;
+    firefox.enable = true;
+  };
 
   system.stateVersion = "26.05";
 
