@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
     nixos-hardware = {
       url = "github:nixos/nixos-hardware";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,35 +30,5 @@
     };
   };
 
-  outputs =
-    inputs@{
-      nixpkgs,
-      lanzaboote,
-      impermanence,
-      home-manager,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          lanzaboote.nixosModules.lanzaboote
-          impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager
-          ./configuration.nix
-        ];
-      };
-
-      devShells.${system}.default = pkgs.mkShellNoCC {
-        packages = with pkgs; [
-          nixd
-          nixfmt
-        ];
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
