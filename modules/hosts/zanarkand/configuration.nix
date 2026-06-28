@@ -16,6 +16,7 @@ in
       niri
       fonts
       networking
+      ssh
       audio
       firefox
       gaming
