@@ -17,6 +17,7 @@ in
       fonts
       networking
       ssh
+      sops
       audio
       firefox
       gaming

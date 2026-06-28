@@ -3,12 +3,12 @@ let
   name = "thatoe";
 in
 {
-  flake.modules.nixos.home = {
+  flake.modules.nixos.home = { config, ... }: {
     imports = [ inputs.home-manager.nixosModules.home-manager ];
 
     users.users.${name} = {
       isNormalUser = true;
-      initialHashedPassword = "$y$j9T$V4ACLsuBY7IPM1bvux.461$AvIIfkcqYm1PRi.ESSk.f61.gzxeIkBUZ7Uhurr7EgB";
+      hashedPasswordFile = config.sops.secrets.user-password.path;
       extraGroups = [ "wheel" ];
     };
 
