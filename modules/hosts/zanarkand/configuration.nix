@@ -10,6 +10,7 @@ in
       nix
       boot
       impermanence
+      btrbk
       locale
       display-manager
       niri
