@@ -66,7 +66,6 @@
       hashedPasswordFile = "/persist/password";
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
-        git
         neovim
         vscodium
       ];
