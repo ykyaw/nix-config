@@ -25,7 +25,10 @@
   };
 
   programs = {
-    claude-code.enable = true;
+    claude-code = {
+      enable = true;
+      enableMcpIntegration = true;
+    };
     fish = {
       enable = true;
       interactiveShellInit = ''
@@ -66,6 +69,15 @@
       };
     };
     home-manager.enable = true;
+    mcp = {
+      enable = true;
+      servers = {
+        nixos = {
+          command = lib.getExe pkgs.mcp-nixos;
+          type = "stdio";
+        };
+      };
+    };
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -81,6 +93,7 @@
       enable = true;
       mutableExtensionsDir = false;
       profiles.default = {
+        enableMcpIntegration = true;
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
         extensions = with pkgs.vscode-extensions; [
