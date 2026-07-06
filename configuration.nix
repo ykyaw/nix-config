@@ -14,6 +14,7 @@
         mode = "0700";
       }
       "/var/lib/nixos"
+      "/var/lib/sbctl"
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers"
       "/var/log"
@@ -22,7 +23,14 @@
   };
 
   boot.loader = {
-    systemd-boot.enable = true;
+    limine = {
+      enable = true;
+      secureBoot = {
+        enable = true;
+        autoGenerateKeys = true;
+        autoEnrollKeys.enable = true;
+      };
+    };
     efi.canTouchEfiVariables = true;
   };
 
