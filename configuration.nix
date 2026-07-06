@@ -92,6 +92,11 @@
     };
   };
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   programs = {
     dconf.enable = true;
     firefox.enable = true;
