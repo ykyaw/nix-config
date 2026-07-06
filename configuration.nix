@@ -65,9 +65,6 @@
       isNormalUser = true;
       hashedPasswordFile = "/persist/password";
       extraGroups = [ "wheel" ];
-      packages = with pkgs; [
-        neovim
-      ];
     };
   };
 
