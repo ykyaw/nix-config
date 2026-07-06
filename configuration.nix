@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
 
   nix = {
@@ -12,6 +12,16 @@
       "flakes"
     ];
   };
+
+  # Keeping track of unfree packages to hopefully find free alternatives.
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "discord"
+      "spotify"
+      "steam"
+      "steam-unwrapped"
+    ];
 
   environment.persistence."/persist" = {
     hideMounts = true;
@@ -85,6 +95,10 @@
   programs = {
     dconf.enable = true;
     firefox.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
   };
 
   system.stateVersion = "26.05";
