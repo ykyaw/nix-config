@@ -1,4 +1,10 @@
-{ config, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   home = {
     username = "thatoe";
     homeDirectory = "/home/thatoe";
@@ -22,6 +28,14 @@
         };
     };
     fzf.enable = true;
+    ghostty = {
+      enable = true;
+      settings = {
+        font-family = "Berkeley Mono";
+        theme = "Catppuccin Mocha";
+        command = "${lib.getExe pkgs.fish} -li";
+      };
+    };
     home-manager.enable = true;
     starship = {
       enable = true;
