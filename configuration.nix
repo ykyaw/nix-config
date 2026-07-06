@@ -67,7 +67,6 @@
       extraGroups = [ "wheel" ];
       packages = with pkgs; [
         neovim
-        vscodium
       ];
     };
   };
