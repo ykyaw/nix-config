@@ -18,36 +18,12 @@
         home-manager.follows = "home-manager";
       };
     };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    import-tree.url = "github:vic/import-tree";
   };
 
-  outputs =
-    inputs@{
-      nixpkgs,
-      impermanence,
-      home-manager,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations.zanarkand = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager
-          ./configuration.nix
-        ];
-      };
-
-      devShells.${system}.default = pkgs.mkShellNoCC {
-        packages = with pkgs; [
-          nixd
-          nixfmt
-          sbctl
-        ];
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
