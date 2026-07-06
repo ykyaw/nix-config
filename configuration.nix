@@ -73,6 +73,20 @@
     };
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-color-emoji
+    ];
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "Berkeley Mono" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
+
   programs.firefox.enable = true;
 
   system.stateVersion = "26.05";
