@@ -22,6 +22,7 @@
           graphql.vscode-graphql
           graphql.vscode-graphql-syntax
           jnoortheen.nix-ide
+          mkhl.direnv
           stkb.rewrap
           streetsidesoftware.code-spell-checker
           usernamehw.errorlens

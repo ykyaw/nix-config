@@ -30,6 +30,7 @@ in
         home-manager
         themes
         shell
+        direnv
         git
         neovim
         ghostty
