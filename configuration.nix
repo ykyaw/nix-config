@@ -78,6 +78,11 @@
     };
   };
 
+  security.sudo.configFile = ''
+    Defaults insults
+    Defaults lecture=never
+  '';
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
