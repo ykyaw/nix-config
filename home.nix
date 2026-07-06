@@ -25,6 +25,7 @@
   };
 
   programs = {
+    claude-code.enable = true;
     fish = {
       enable = true;
       interactiveShellInit = ''
@@ -83,6 +84,7 @@
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
         extensions = with pkgs.vscode-extensions; [
+          anthropic.claude-code
           catppuccin.catppuccin-vsc
           catppuccin.catppuccin-vsc-icons
           dart-code.dart-code
@@ -116,6 +118,7 @@
         userSettings = {
           "[dart]"."editor.rulers" = [ 160 ];
           "[typescript]"."editor.rulers" = [ 140 ];
+          "claudeCode.preferredLocation" = "sidebar";
           "editor.fontFamily" = "Berkeley Mono";
           "editor.fontLigatures" = true;
           "editor.formatOnPaste" = true;
