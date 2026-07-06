@@ -12,6 +12,18 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      { directory = "/etc/NetworkManager/system-connections"; mode = "0700"; }
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      "/var/lib/systemd/timers"
+      "/var/log"
+    ];
+    files = [ "/etc/machine-id" ];
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
