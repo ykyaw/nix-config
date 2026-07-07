@@ -1,12 +1,15 @@
-{ config, ... }: {
+let
   username = "thatoe";
+in
+{
+  inherit username;
 
-  flake.modules.nixos.users = {
+  flake.modules.nixos.users = { config, ... }: {
     users = {
       mutableUsers = false;
-      users.${config.username} = {
+      users.${username} = {
         isNormalUser = true;
-        hashedPasswordFile = "/persist/password";
+        hashedPasswordFile = config.sops.secrets.user-password.path;
         extraGroups = [ "wheel" ];
       };
     };
