@@ -5,6 +5,7 @@
         nixd
         nixfmt
         sbctl
+        sops
       ];
     };
   };

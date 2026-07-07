@@ -16,6 +16,7 @@ in
       home-manager
       networking
       ssh
+      sops
       locale
       audio
       fonts
@@ -30,6 +31,7 @@ in
     home-manager.users.${config.username} = {
       imports = with inputs.self.modules.homeManager; [
         home-manager
+        sops
         themes
         shell
         direnv

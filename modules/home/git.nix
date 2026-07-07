@@ -16,6 +16,9 @@
       };
     };
 
-    home.packages = [ pkgs.lazygit ];
+    home = {
+      packages = [ pkgs.lazygit ];
+      file.".ssh/id_ed25519.pub".source = ../../secrets/id_ed25519.pub;
+    };
   };
 }
