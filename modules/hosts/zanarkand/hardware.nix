@@ -90,5 +90,7 @@
     };
 
     swapDevices = [ ];
+
+    zramSwap.enable = true;
   };
 }
