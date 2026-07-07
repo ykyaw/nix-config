@@ -11,6 +11,7 @@ in
       nix
       unfree
       impermanence
+      btrbk
       users
       home-manager
       networking

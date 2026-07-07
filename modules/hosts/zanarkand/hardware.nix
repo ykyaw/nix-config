@@ -1,4 +1,6 @@
 { inputs, ... }: {
+  enableDataDisk = true;
+
   flake.modules.nixos.zanarkand = { modulesPath, ... }: {
     imports =
       with inputs.nixos-hardware.nixosModules;
@@ -24,7 +26,10 @@
           "sd_mod"
         ];
         kernelModules = [ ];
-        luks.devices.root.device = "/dev/disk/by-label/CRYPTROOT";
+        luks.devices = {
+          root.device = "/dev/disk/by-label/CRYPTROOT";
+          data.device = "/dev/disk/by-label/CRYPTDATA";
+        };
       };
       kernelModules = [ "kvm-amd" ];
       extraModulePackages = [ ];
@@ -71,6 +76,16 @@
           "compress=zstd"
         ];
         neededForBoot = true;
+      };
+      "/mnt/data" = {
+        device = "/dev/disk/by-label/DATA";
+        fsType = "btrfs";
+        options = [
+          "subvol=data"
+          "noatime"
+          "compress=zstd"
+          "nofail"
+        ];
       };
     };
 

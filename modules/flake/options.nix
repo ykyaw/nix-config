@@ -6,4 +6,6 @@
     type = lib.types.listOf lib.types.str;
     default = [ ];
   };
+
+  options.enableDataDisk = lib.mkEnableOption "a secondary DATA-labeled disk";
 }
