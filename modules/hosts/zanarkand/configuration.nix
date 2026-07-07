@@ -15,6 +15,7 @@ in
       users
       home-manager
       networking
+      ssh
       locale
       audio
       fonts
