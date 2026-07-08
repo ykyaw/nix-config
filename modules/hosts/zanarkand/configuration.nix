@@ -8,6 +8,7 @@ in
   flake.modules.nixos.${hostName} = {
     imports = with inputs.self.modules.nixos; [
       boot
+      plymouth
       nix
       unfree
       impermanence
