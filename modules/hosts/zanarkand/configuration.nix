@@ -39,7 +39,7 @@ in
         direnv
         git
         neovim
-        ghostty
+        kitty
         vscodium
         ai
         apps
