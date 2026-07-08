@@ -32,6 +32,7 @@ in
       imports = with inputs.self.modules.homeManager; [
         home-manager
         sops
+        nix-index
         themes
         shell
         direnv
