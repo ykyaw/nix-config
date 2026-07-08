@@ -11,5 +11,7 @@
         "flakes"
       ];
     };
+
+    programs.nix-ld.enable = true;
   };
 }
