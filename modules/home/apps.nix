@@ -11,6 +11,7 @@
       bruno
       dbeaver-bin
       discord
+      libreoffice
       qbittorrent
       spotify
       teams-for-linux
