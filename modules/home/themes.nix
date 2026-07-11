@@ -12,6 +12,11 @@
       };
     };
 
+    qt = {
+      enable = true;
+      platformTheme.name = "gtk3";
+    };
+
     home.pointerCursor = {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
