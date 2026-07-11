@@ -21,7 +21,7 @@ in
       locale
       audio
       fonts
-      gnome
+      niri
       firefox
       docker
       gaming
@@ -34,6 +34,7 @@ in
         home-manager
         sops
         nix-index
+        noctalia
         themes
         shell
         direnv
