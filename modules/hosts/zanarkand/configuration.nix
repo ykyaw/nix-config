@@ -34,6 +34,7 @@ in
         home-manager
         sops
         nix-index
+        gnome
         themes
         shell
         direnv
