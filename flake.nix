@@ -1,37 +1,39 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "NixOS Configuration";
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware = {
-      url = "github:nixos/nixos-hardware";
-      inputs.nixpkgs.follows = "nixpkgs";
+    den.url = "github:denful/den";
+    flake-file.url = "github:denful/flake-file";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    import-tree.url = "github:vic/import-tree";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence = {
-      url = "github:nix-community/impermanence";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-    import-tree.url = "github:vic/import-tree";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }

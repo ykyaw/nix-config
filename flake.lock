@@ -1,5 +1,35 @@
 {
   "nodes": {
+    "den": {
+      "locked": {
+        "lastModified": 1783964713,
+        "narHash": "sha256-wVN3xYYL5erapo9FQp9sfmN5tZ65whwLlK7z+iQnTgw=",
+        "owner": "denful",
+        "repo": "den",
+        "rev": "84b514929d25c7b2f8e9cfba5ff87d395c2b9263",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "den",
+        "type": "github"
+      }
+    },
+    "flake-file": {
+      "locked": {
+        "lastModified": 1784255282,
+        "narHash": "sha256-srM+PTqxfyvbQ0BevsOtP8vQv/Ox6OMtY4DktoDxLKg=",
+        "owner": "denful",
+        "repo": "flake-file",
+        "rev": "66ddd2f69a5c4677f0095c6f70eea1217dc45749",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "flake-file",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -136,6 +166,8 @@
     },
     "root": {
       "inputs": {
+        "den": "den",
+        "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
