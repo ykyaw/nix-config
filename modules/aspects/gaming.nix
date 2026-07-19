@@ -1,0 +1,18 @@
+{
+  allowedUnfreePackages = [
+    "steam"
+    "steam-unwrapped"
+    "xone-dongle-firmware"
+  ];
+
+  flake.modules.nixos.workstation = { pkgs, ... }: {
+    programs.steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
+
+    hardware.xone.enable = true;
+
+    environment.systemPackages = [ pkgs.xclicker ];
+  };
+}
