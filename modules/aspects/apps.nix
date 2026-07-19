@@ -1,6 +1,7 @@
 {
   allowedUnfreePackages = [
     "discord"
+    "discord-unwrapped"
     "spotify"
   ];
 
