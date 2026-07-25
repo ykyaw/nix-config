@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nixos-desktop = { pkgs, ... }: {
+  flake.modules.nixos.null = { pkgs, ... }: {
     services = {
       displayManager = {
         autoLogin = {
@@ -30,7 +30,7 @@
     ];
   };
 
-  flake.modules.homeManager.nixos-desktop =
+  flake.modules.homeManager.null =
     { pkgs, lib, ... }:
     let
       extensions = with pkgs.gnomeExtensions; [
@@ -110,7 +110,6 @@
           "org/gnome/desktop/interface" = {
             accent-color = "teal";
             clock-show-weekday = true;
-            color-scheme = "prefer-dark";
           };
           "org/gnome/desktop/peripherals/keyboard".numlock-state = true;
           "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
