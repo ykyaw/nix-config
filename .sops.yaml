@@ -1,7 +1,7 @@
 keys:
   - &admin age1smvma3kje6rg2jsw8rwlcej6d5h4juvg0u4ctjdv7qjcrhlzcpfs2gkydt
-  - &zanarkand age1kehyfyq5647kgma354hhk0d9xzl5e7kvurtha483ghzhssykrgsqlzy928
-  - &moonflow age1f5xfggt5d9ec2rfzmtr8p4qysf8qpczy84gg562e9g9lgzdtmqzqvdfzgf
+  - &zanarkand age1xg59lmgd34ey8txpcg5n0eymscwhae9cg2upqkmwk2re5wegr99q6vmnj7
+  - &moonflow age160cgpcfag7nj9ycaj7ztdgvvpsaw0devmhhcmdkv7dr4trk3vscsy02map
 creation_rules:
   - path_regex: secrets/.*\.(yaml|json)$
     key_groups:
