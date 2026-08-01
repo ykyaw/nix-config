@@ -92,6 +92,12 @@
       sensor.iio.enable = true;
     };
 
-    services.fwupd.enable = true;
+    services = {
+      fwupd.enable = true;
+      udev.extraHwdb = ''
+        touchpad:usb:v0b05p1a30:*
+         ID_INPUT_TOUCHPAD_INTEGRATION=internal
+      '';
+    };
   };
 }
