@@ -5,6 +5,7 @@
     environment.persistence."/persist" = {
       hideMounts = true;
       directories = [
+        "/etc/NetworkManager/system-connections"
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
         "/var/lib/systemd/timers"
