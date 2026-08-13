@@ -31,8 +31,8 @@
       };
     };
 
-    security.pam.services.greetd.rules.session.fdeBootPassword = {
-      order = config.security.pam.services.greetd.rules.session.gnome_keyring.order - 10;
+    security.pam.services.login.rules.session.fdeBootPassword = {
+      order = config.security.pam.services.login.rules.session.gnome_keyring.order - 10;
       control = "optional";
       modulePath = "${pkgs.pam_fde_boot_pw}/lib/security/pam_fde_boot_pw.so";
       settings.inject_for = "gkr";
