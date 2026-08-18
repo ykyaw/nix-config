@@ -1,18 +1,21 @@
 {
   flake.modules.homeManager.workstation = { pkgs, ... }: {
-    programs.git = {
-      enable = true;
-      settings = {
-        user = {
-          email = "thatoe@pm.me";
-          name = "Ye Thatoe Kyaw";
+    programs = {
+      gh.enable = true;
+      git = {
+        enable = true;
+        settings = {
+          user = {
+            email = "thatoe@pm.me";
+            name = "Ye Thatoe Kyaw";
+          };
+          push.autoSetupRemote = true;
         };
-        push.autoSetupRemote = true;
-      };
-      signing = {
-        format = "ssh";
-        key = "~/.ssh/id_ed25519.pub";
-        signByDefault = true;
+        signing = {
+          format = "ssh";
+          key = "~/.ssh/id_ed25519.pub";
+          signByDefault = true;
+        };
       };
     };
 
