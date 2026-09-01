@@ -295,6 +295,7 @@
     home.packages = with pkgs; [
       nautilus
       playerctl
+      wl-clipboard
       xwayland-satellite
     ];
   };
